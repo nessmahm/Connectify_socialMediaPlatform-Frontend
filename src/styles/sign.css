@@ -1,0 +1,221 @@
+@import url('https://fonts.cdnfonts.com/css/charger-sport');
+.sign-container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 70%;
+    height: 600px;
+}
+
+.signImage {
+    background-image: url('../assets/images/sign-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 60%;
+    position: relative;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 40%;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+    margin-top:20px;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-label {
+    width: 100%;
+    font-family: 'Charger Sport', sans-serif;
+    font-size: 25px;
+    color: #5e5e5e;
+    line-height: 1.2;
+}
+
+.sign-form .input-container {
+    margin: 0px;
+    min-width: 40px;
+    width: 90%;
+    border-color: rgb(182, 179, 179);
+    transition: 0.2s ease all;
+    color: #326171;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.sign-form .input-container::placeholder {
+    color: rgb(180, 176, 176);
+    font-family: cursive;
+}
+
+.sign-form label {
+    font-family: cursive;
+    color: rgb(100, 100, 100);
+}
+
+.sign-btn {
+    display: flex;
+    justify-self: flex-end;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.sign-btn span {
+    font-family: cursive;
+}
+
+.sign-btn1 {
+    color: rgb(255, 255, 255);
+    background-color: #326171;
+    height: 40px;
+    width: 80px;
+    margin: 10px;
+}
+
+.sign-btn2 {
+    color: #326171;
+    background-color:non !important;
+}
+
+.sign-btn1:hover {
+    transform: scale(1.1) !important;
+    cursor: pointer;
+    background-color: #7aacbc;
+}
+
+.sign-btn2:hover {
+    color: #7aacbc;
+}
+
+.sign-form .input-container:focus {
+    outline: none;
+    transform: scale(1.02);
+    border-width: 2px;
+    border-color: #326171;
+}
+.choices-btn{
+display: flex;
+font-family: 'Charger Sport', sans-serif ;
+}
+.choices-btn .btn {
+    font-family: 'Charger Sport', sans-serif;
+    font-size: 20px;
+    background-color: rgb(145, 145, 145);
+    color: #ffffff;
+    padding:10px;
+    font-weight: 100;
+    margin:10px;
+}
+.choices-btn .btn:hover {
+   transform:  scale(1.1);
+}
+
+.field-options {
+    margin-top:10px;  
+    width: 250px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #234652;
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: #234652;;
+    height: 50px;
+    font-family:  cursive;
+  
+  }
+  
+  .field-options:hover {
+      transform:  scale(1.01);
+   }
+  
+  .field-options select option {
+      background-color: white;
+      height: 20px;
+  }
+    
+  .field-options option:hover {
+      background-color: #f2f2f2 !important;
+  }
+    
+  .field-options:focus{
+      border-color: #aaa;
+      box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
+  }
+
+  .upload-btn-wrapper {
+    position: relative;
+  }
+  
+  .upload-btn-wrapper .btn {
+    border: 1px solid gray;
+    color: rgb(56, 56, 56);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Charger Sport', sans-serif;
+    width: 130px;
+    height: 30px;
+    margin-top: 10px;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    margin-top: -30px;
+    width: 130px;
+    height: 30px;
+    opacity: 0;
+    cursor: pointer !important;
+
+  }
+  .upload-btn-wrapper input[type=file]:hover {
+    cursor: pointer !important;
+  
+}
+#file-chosen span {
+    font-size:15px;
+    width:100%;
+    font-family: cursive;
+}
+@media screen and (max-width: 1000px) {
+    .sign-container {
+        flex-direction: column;
+        min-width: 400px;
+        width: 50%;
+        height: 100%;
+    }
+    .signImage {
+        min-width: 0;
+        width: 100%;
+        height: 350px;
+    }
+    .sign-form {
+        width: 80%;
+        margin: auto;
+    }
+}
