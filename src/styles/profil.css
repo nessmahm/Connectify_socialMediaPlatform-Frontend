@@ -1,0 +1,106 @@
+.profil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.profil-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    width: 70%;
+}
+.profil-header .user-img {
+    margin-bottom: -20px;
+}
+
+.profil-header .user-img img {
+    width: 100px;
+    height: 100px;
+    z-index:2;
+}
+.profil-header .user-img .userBadge {
+    top: -90px;
+    right: -80px;
+}
+.profil-header .infos {
+    background-color: white;
+    width: 100%;
+    height: 130px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: -1;
+
+}
+
+.profil-header .infos span {
+    font-size: 14px;
+    color: #939597;
+    line-height: 1;
+}
+
+.profil .profile-body {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 70%;
+    justify-content: space-between;
+
+}
+.profil .profile-body .partOne {
+    width: 40%;
+}
+.profil .profile-body .partTwo {
+    width: 50%;
+
+
+}
+/*------------POST---------------*/
+.post {
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+
+}
+.post div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.post .header {
+    padding:20px;
+}
+.post .header textarea {
+    margin-left: 20px;
+    color: #c0bfbf;
+    border: none;
+}
+.post .header textarea:active {
+    outline: none;
+
+    border: none;
+}
+.post .header div {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.post .header .userImg{
+    width: 30px!important;
+
+}
+.post .footer {
+    height: 40px;
+    background-color: #efebeb;
+    border-radius: 0 0 0 5px;
+    width: 100%;
+}
+.post .footer div {
+    margin: 5px;
+
+}

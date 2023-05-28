@@ -2,6 +2,7 @@ body {
 margin : 0 ;
 font-family: "Roboto", sans-serif;
 background-color: #f8f8f8;
+
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
@@ -23,22 +24,8 @@ background-color: #f8f8f8;
   justify-content: space-between;
 }
 
-.icon {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 50%;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #1eb2a6;
-  transition: 0.5s;
-}
 
-.icon:hover {
-  cursor: pointer;
-  background-color: #1eb2a6;
-  color: #fff;
-}
+
 
 a {
   text-decoration: none;
@@ -190,4 +177,11 @@ button:hover {
 
  .homepage *{
   box-sizing: border-box;
+}
+.wrapper{
+  margin: 40px auto;
+  width: 60%;
+  background-color: white;
+  padding:50px;
+
 }

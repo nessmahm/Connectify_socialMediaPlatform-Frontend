@@ -1,0 +1,25 @@
+.home-page{
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+.home-page .partTwo {
+    width: 50%;
+    margin: 20px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.home-page .partTwo .post {
+    width: 100%x !important;
+}
+
+.home-page .partOne {
+margin-left: 0px;
+width: 80px;
+height: 100vh;
+
+}
