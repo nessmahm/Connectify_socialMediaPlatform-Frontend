@@ -234,7 +234,6 @@ font-family: 'Charger Sport', sans-serif ;
     .sign-container {
         flex-direction: column;
         min-width: 400px;
-        width: 50%;
         height: 100%;
     }
     .signImage {
@@ -243,7 +242,7 @@ font-family: 'Charger Sport', sans-serif ;
         height: 350px;
     }
     .sign-form {
-        width: 80%;
+        width: 60%;
         margin: auto;
     }
 }
