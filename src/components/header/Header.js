@@ -12,12 +12,25 @@ import Badge from '@mui/material/Badge';
 import user from '../../assets/images/user.png'
 import UserDropDown from "../../modals/UserDropDown";
 import {Link} from "react-router-dom";
-
+import NotificationModal from "../../modals/NotificationModal";
+import FriendRequestModal from "../../modals/FriendRequestModal";
+import '../../styles/modal.css'
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
     const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
     const [friendRedBadge, setFriendReqBadge] = useState({"visible": true,"number":3});
     const [userDropdown , setUserDropdown] = useState(false)
+    const [notificationDropdown , setnotificationDropdown] = useState(false)
+    const [friendsReqDropdown , setfriendsReqDropdown] = useState(false)
+    const handelNotification = () => {
+        setnotificationDropdown(!notificationDropdown)
+        setnotificationBadge({"visible": false })
+    }
+    const handelFriendRequest = () => {
+        setfriendsReqDropdown(!friendsReqDropdown)
+        setFriendReqBadge({"visible": false })
+        console.log(friendsReqDropdown)
+    }
     return (
         <div>
         <header>
@@ -49,25 +62,29 @@ function Header() {
                 </div>
 
                 <span className={"separator"}></span>
-                <div className={"icon-wrapper"}>
+                <div className={"icon-wrapper"} onClick={handelNotification}>
                     <Badge badgeContent={notificationBadge.number} invisible={!notificationBadge.visible} color="secondary">
 
-                    <NotificationsOutlinedIcon className={"icon"}/>
+                    <NotificationsOutlinedIcon className={"icon"} />
                     </Badge>
+                    {notificationDropdown && <NotificationModal/>}
+
                 </div>
-                <div className={"icon-wrapper"}>
+
+                <div className={"icon-wrapper"} onClick={handelFriendRequest}>
                     <Badge badgeContent={friendRedBadge.number} invisible={!friendRedBadge.visible} color="secondary">
 
                     <PeopleAltOutlinedIcon className={"icon"} />
                     </Badge>
+                    {friendsReqDropdown && <FriendRequestModal/>}
                 </div>
 
                 <div className={"user"}>
                     <span>{"userName"}</span>
                     <img src={user}  alt={"user"} onClick={()=>setUserDropdown(!userDropdown)}/>
+                    {userDropdown && <UserDropDown/>}
 
                 </div>
-                {userDropdown && <UserDropDown/>}
 
 
 

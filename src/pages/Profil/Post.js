@@ -14,7 +14,7 @@ function Post() {
                 <div className={"header"}>
                     <UserImage/>
 
-                    <textarea> Share what's on your mind.. " </textarea>
+                    <textarea value={" Share what's on your mind.. "}> </textarea>
 
                     </div>
 
