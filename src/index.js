@@ -8,6 +8,7 @@ import './styles/style.css'
 import './styles/elements.css'
 import {BrowserRouter as Router , Route , Routes } from 'react-router-dom'
 import FullHeader from './components/header/FullHeader'
+import Profil from "./pages/Profil/Profil";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ root.render(
           <Routes>
               <Route path="/signup" element = {<SignUp/>} />
               <Route path="/signin" element = {<SignIn/>} />
+              <Route path="/profil" element = {<Profil/>} />
           </Routes>
       </Router>
   </React.StrictMode>

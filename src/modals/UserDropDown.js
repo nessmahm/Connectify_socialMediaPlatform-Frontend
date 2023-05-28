@@ -7,7 +7,7 @@ function UserDropDown() {
     return (
         <div className={"user-dropdown"}>
 
-            <Link to={"/profile"} className={"elements"}>
+            <Link to={"/profil"} className={"elements"}>
                 <AccountCircleIcon/>
                 <span>Profile</span>
             </Link>

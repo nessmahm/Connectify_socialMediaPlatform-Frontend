@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import user from '../../assets/images/user.png'
 import UserDropDown from "../../modals/UserDropDown";
+import {Link} from "react-router-dom";
 
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
@@ -24,19 +25,21 @@ function Header() {
 
             <div className={"middle"}>
 
-                <div className={"icon-wrapper"}>
+                <Link to={"/friends"} className={"icon-wrapper"}>
                     <Diversity3OutlinedIcon  />
-                </div>
-                <div className={"icon-wrapper"}>
+                </Link>
+
+                <Link to={"/home"} className={"icon-wrapper"}>
 
                     <HomeIcon className={"icon"} />
-                </div>
-                <div className={"icon-wrapper"}>
+                </Link>
+
+                <Link to={"/messages"} className={"icon-wrapper"}>
                     <Badge variant="dot" invisible={!messageBadge.visible} color="secondary">
 
                     <SmsOutlinedIcon />
                     </Badge>
-                </div>
+                </Link>
 
             </div>
 

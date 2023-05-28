@@ -1,17 +1,3 @@
-.header {
-    display:flex;
-    height: 80px;
-    width: 100%;
-    top : 0 ;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1F4B5B;
-    margin:0;
-    z-index: 100;
-    color:white  ;
-    position: fixed;
-    box-shadow:  -4px 4px 10px rgb(159, 158, 158);
-}
 /*---------Footer------------*/
 footer {
 background-color: #1F4B5B;
@@ -381,4 +367,131 @@ flex-direction: column;
 }
 button {
 }
+}
+
+.userImg {
+    border-radius: 50%;
+    border: white solid 2px;
+}
+/*----FriendsElement--------*/
+.friends {
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.friends span {
+    font-weight: bold;
+    font-size: 15px;
+}
+.friends-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.friends-wrapper .userImg {
+    width: 60px;
+    margin: 5px;
+}
+
+/* -------Posted Post------*/
+.posted-post{
+    display: flex;
+    flex-direction: column;
+background-color: white;
+    padding-top: 5px;
+    margin: 20px 0px;
+    border-radius: 5px;
+}
+.posted-post .header {
+    display: flex;
+    padding: 15px;
+
+}
+.posted-post .header   .info {
+    display: flex;
+    flex-direction:column;
+    margin-left: 10px;
+}
+.posted-post .header .userImg {
+    width: 50px;
+    height: 50px;
+}
+
+.posted-post .content {
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+}
+.posted-post .content span {
+    margin: 10px 5px;
+}
+.posted-post .content img {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+}
+
+.posted-post .action {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+}
+.posted-post .action .react {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+.posted-post .action .react  span{
+    margin: 5px;
+
+}
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+
+/*------Comment-----------*/
+
+.comment {
+    display: flex;
+    padding: 10px;
+}
+.comment .details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.comment .details .info {
+    display: flex;
+    margin-bottom: 5px;
+
+}
+.comment .details .info span {
+    font-size: 12px;
+}
+.comment .details .info .postOwner {
+    font-weight: bold;
+
+
+}
+.comment .details .info .postDate {
+color: #989797;
+    padding-left: 10px;
+
+}
+.comment  .userImg{
+    width:20px;
+    height: 20px;
+}
+.comment .commentText {
+    font-size:15px
 }
