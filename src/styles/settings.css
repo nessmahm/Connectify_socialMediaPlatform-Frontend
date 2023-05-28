@@ -1,0 +1,28 @@
+.settings {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.settings label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.settings span {
+    margin-top:20px;
+    width: 200px;
+
+}
+.settings form {
+    width: 90%!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.settings button {
+    align-self: center;
+}

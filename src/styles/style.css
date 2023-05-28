@@ -178,3 +178,10 @@ button:hover {
  .homepage *{
   box-sizing: border-box;
 }
+.wrapper{
+  margin: 40px auto;
+  width: 60%;
+  background-color: white;
+  padding:50px;
+
+}
