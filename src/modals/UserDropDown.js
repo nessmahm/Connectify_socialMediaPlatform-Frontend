@@ -5,7 +5,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 function UserDropDown() {
     return (
-        <div className={"user-dropdown"}>
+        <div className={"user-dropdown modaal"}>
 
             <Link to={"/profil"} className={"elements"}>
                 <AccountCircleIcon/>
