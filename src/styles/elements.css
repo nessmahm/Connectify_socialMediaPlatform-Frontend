@@ -1,0 +1,384 @@
+.header {
+    display:flex;
+    height: 80px;
+    width: 100%;
+    top : 0 ;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1F4B5B;
+    margin:0;
+    z-index: 100;
+    color:white  ;
+    position: fixed;
+    box-shadow:  -4px 4px 10px rgb(159, 158, 158);
+}
+/*---------Footer------------*/
+footer {
+background-color: #1F4B5B;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 20px;
+bottom: 0;
+margin-top:90px;
+}
+footer .part1 {
+display: flex;
+align-items: center;
+width: 70%;
+justify-content: space-between;
+}
+footer .abonnement {
+margin:20px;
+padding: 30px;
+min-width: 350px;
+width: 70%;
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+justify-items: center;
+height: 100px;
+border-radius: 5px;
+background-color: rgba(246, 239, 239, 0.3);
+
+}
+.abonnement h2 {
+text-align: center;
+color: rgb(225, 215, 215);
+font-family: 'Nunito', sans-serif;
+font-size: 20px;
+
+}
+footer .abonnement .abnformulaire {
+display: flex;
+flex-wrap: nowrap;
+width: 60%;
+align-items: center;
+justify-content: center;
+margin : 20px;
+
+}
+
+.input-container
+{ 
+    min-width: 200px;
+    width: 60%;
+    margin-right: 30px;
+    height: 34px;
+    background-color: rgba(246, 239, 239, 0);
+    border: none;
+    border-bottom: solid white 1px ;
+    color : white ;
+    transition: all 0.3s;
+
+}
+.input-container::placeholder {
+    color : white ;
+    text-align:start;
+
+}
+.input-container:focus {
+    outline :none;
+    transform: scale(1.08);
+    border-width: 2px;
+}
+.inscriptionbtn  {
+    justify-self: flex-end;
+    align-self: flex-end;
+    color:rgb(255, 255, 255);
+    background-color: #326171; 
+    height: 41px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+.btn {
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.7s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.btn span {
+text-align: center;
+font-size: 15px;
+}
+.btn:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+
+
+}
+
+.inscriptionbtn:hover {
+    background-color: #7aacbc;
+
+}
+
+
+footer .footerlogo {
+align-self: center;
+color :rgba(216, 211, 211, 0.45);
+text-align: start;
+
+}
+
+footer .part2 {
+width: 90%;
+display: flex;
+align-items: center;
+justify-content: space-around;
+
+}
+footer  h4{
+    color:#7aacbc;
+    text-align: center;
+    margin-bottom: 15px;
+
+
+}
+footer .contacts {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.contacts-element {
+    font-weight:bold;
+    font-size:16px;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contacts-element .contacts-element
+{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer .contacts p {
+    padding:0;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+    color:#ffffff;
+
+}
+
+.contacts span {
+    padding:0;
+    line-height:1.6;
+    font-size:12px;
+    color:#badeea;
+    text-align: center;
+}
+
+footer .icons {
+display: flex;
+justify-content: space-around; 
+align-items: center;
+
+}
+footer .icons a {
+    text-decoration: none;
+}
+
+
+/*------NavELements------*/
+.menu-icon{
+    display: none;
+    width: 50px;
+    
+}
+.navLinks-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.navLinks , .signInButtn{
+    display:flex;
+    justify-content: space-between;
+    height: 60%;
+    align-items: center;
+
+}
+
+.navmodal-container{
+display: none;
+z-index: 200;
+
+}
+.navLinks a , .signInButtn a {
+color :white ;
+border-style: none;
+font-size: 20px;
+padding: 30px ;
+text-decoration: none; 
+font-family: 'Baloo 2', cursive;
+font-weight: 600;
+}
+
+
+.signInButtn a  span {
+        color: #1F4B5B;
+        background-color: white ;
+        border-radius: 15px;
+        border: solid 1px #1F4B5B ;
+        padding :  5px 15px ;
+        
+}
+.signInButtn:hover {
+    transform: scale(1.15) ;
+}    
+
+.navLinks a span {
+    display: inline-block;
+
+}
+
+.navLinks a span:hover{
+    color:white ;
+}
+
+.navLinks a span:after{
+    display:block;
+    content: '';
+    border-bottom: solid 3px white ;  
+    transform: scaleX(0);  
+    transition: transform 300ms ease-in-out;
+}
+
+.navLinks a span:hover:after{
+    transform-origin:left;
+    transform: scaleX(1); 
+}
+.signInButtn {
+    transition: transform 300ms ease-in-out;
+
+}
+/*------LOGO------*/
+.logo{
+font-size: 30px;
+margin-left: 70px;
+color :#ddf4fc ;
+text-decoration: none;
+}
+
+
+
+    
+@media screen and (max-width: 1020px)
+{
+    
+    
+.logo{
+order:2;
+margin: auto;
+
+}
+
+/*----menu-icon---*/
+.menu-icon {
+    display: inline-block;
+    cursor: pointer;
+    margin:20px;
+    position: absolute;
+    width: 50px;
+    background-color: #1F4B5B;
+
+
+}
+ .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.menu-change .bar1{
+    transform: translate(0, 11px) rotate(-45deg);
+}
+.menu-change .bar2  {opacity: 0;}
+
+.menu-change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+.navLinks-container{
+display: none;
+}
+
+.navmodal-container{
+    order :0;
+    top:85px;
+    position: absolute;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background-color: rgba(165, 164, 164, 0.7) ;
+    padding-bottom : 20px;
+}
+.navLinks{
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+   
+}
+.navLinks a {
+height: 20px;
+}
+.navLinks a span:hover{
+    color:rgb(255, 255, 255);
+}
+.navLinks a {
+padding: 20px;
+}
+.navmodal 
+{    
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+
+}
+.signInButtn  a span{
+    padding :  5px 35px ;
+
+}
+
+
+footer .part2 {
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+
+footer .contacts div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+footer .part1 {
+flex-direction: column;
+}
+button {
+}
+}
