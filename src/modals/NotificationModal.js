@@ -1,5 +1,5 @@
 import React from 'react'
-import Notification from "../components/Notification";
+import Notification from "../components/Notifications/Notification";
 import '../styles/modal.css'
 function NotificationModal() {
     return (

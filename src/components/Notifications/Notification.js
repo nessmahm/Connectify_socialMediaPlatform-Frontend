@@ -1,5 +1,5 @@
 import React from 'react'
-import UserImage from "./UserImage";
+import UserImage from "../UserImage";
 
 function Notification({userName,action,date}) {
     return (

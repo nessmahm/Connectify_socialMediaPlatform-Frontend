@@ -1,6 +1,6 @@
 import React from 'react'
-import UserImage from "./UserImage";
-import  '../styles/elements.css'
+import UserImage from "../UserImage";
+import  '../../styles/elements.css'
 
 function Comment() {
     return (

@@ -9,6 +9,7 @@ import './styles/elements.css'
 import {BrowserRouter as Router , Route , Routes } from 'react-router-dom'
 import FullHeader from './components/header/FullHeader'
 import Profil from "./pages/Profil/Profil";
+import NotAdminProfil from "./pages/Profil/NotAdminProfil";
 import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,8 +21,10 @@ root.render(
               <Route path="/signup" element = {<SignUp/>} />
               <Route path="/signin" element = {<SignIn/>} />
               <Route path="/profil" element = {<Profil/>} />
+              <Route path="/profil1" element = {<NotAdminProfil/>} />
               <Route path="/home" element = {<Home/>} />
               <Route path="/settings" element = {<Settings/>} />
+
           </Routes>
       </Router>
   </React.StrictMode>

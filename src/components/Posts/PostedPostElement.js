@@ -1,5 +1,5 @@
 import React from 'react'
-import UserImage from "./UserImage";
+import UserImage from "../UserImage";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Comment from "./Comment";

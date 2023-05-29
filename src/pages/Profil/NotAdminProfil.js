@@ -4,8 +4,8 @@ import ProfilHeader from './ProfilHeader'
 import Post from "../../components/Posts/Post";
 import FriendsElement from "../../components/FriendsElement";
 import PostedPostElement from "../../components/Posts/PostedPostElement";
-function Profil() {
-    const [user,setUser]= useState({"userName":"userName","userImage":"","joinedDate":"May 2013","userFriends":[],"userState":false,"userPosts":[] })
+function NotAdminProfil() {
+    const [user,setUser]= useState({"userName":"userName","userImage":"","joinedDate":"May 2013","userFriends":[],"userState":true,"userPosts":[] })
 //if the user is connected then the userState will be true !! else userState false
     return (
         <div className={"profil"}>
@@ -26,4 +26,4 @@ function Profil() {
     )
 }
 
-export default Profil
+export default NotAdminProfil

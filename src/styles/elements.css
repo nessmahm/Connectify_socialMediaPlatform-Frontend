@@ -561,5 +561,9 @@ color: #989797;
     padding: 5px 10px;
     font-size: 15px;
     cursor: pointer;
+    transition: scale 5s ease-in-out;
+}
+.post .footer button:active {
+
 
 }

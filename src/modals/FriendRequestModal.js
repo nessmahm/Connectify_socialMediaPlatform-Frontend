@@ -1,5 +1,5 @@
 import React from 'react'
-import FriendRequest from "../components/FriendRequest";
+import FriendRequest from "../components/Notifications/FriendRequest";
 
 function FriendRequestModal() {
     return (
