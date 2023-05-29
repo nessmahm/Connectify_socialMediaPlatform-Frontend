@@ -14,7 +14,7 @@
 }
 
 .user-dropdown {
-    right: 8%;
+    right: 4%;
     width: 200px;
 
 }
@@ -83,11 +83,31 @@
 }
 .notification-modal  {
     padding: 40px 10px!important;
-    right: 16%;
+    right: 18%;
 }
 .friendreq-modal {
     right: 15%;
 
 }
+.search-modal {
+    right: 25%;
+    width: 400px;
+    align-items: start;
+    padding: 10px;
+}
 
+.search-modal .user {
+    margin: 20px;
+}
+.search-modal .user .details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    align-items: start;
+
+}
+.search-modal .empty-modal {
+
+    align-self: center;
+}
 

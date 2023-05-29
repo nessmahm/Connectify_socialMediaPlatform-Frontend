@@ -10,8 +10,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 30px;
     width: 70%;
+    margin-bottom: 40px;
 }
 .profil-header .user-img {
     margin-bottom: -20px;
@@ -82,4 +82,13 @@
     transform:scale(1);
     background-color: #949393;
     color: #78289f;
+}
+.profil .partOne .userImg {
+  margin:20px;
+}
+.profil .partOne .friends-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
