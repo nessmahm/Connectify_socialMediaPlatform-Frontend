@@ -496,3 +496,70 @@ color: #989797;
 .comment .commentText {
     font-size:15px
 }
+
+/*------------POST---------------*/
+.post {
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+
+}
+.post div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.post .header {
+    padding:20px;
+}
+.post .header textarea {
+    margin-left: 20px;
+    color: #313030;
+    border: none;
+    width: 100%;
+
+}
+.post .header textarea::placeholder{
+    color: gray;
+}
+.post .header textarea:focus {
+    outline: none;
+}
+.post .header div {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.post .header .userImg{
+    width: 30px!important;
+
+}
+.post .footer {
+    height: 40px;
+    background-color: #efebeb;
+    border-radius: 0 0 0 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.post .footer div {
+    margin: 5px;
+
+}
+.post .footer input {
+ width: 20px;
+    margin-right: 100%;
+    position:absolute;
+    opacity: 0;
+}
+.post .footer button {
+  background-color:gray!important;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
