@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import PostModal from "../modals/PostModal";
-import UserImage from "./UserImage";
+import PostModal from "../../modals/PostModal";
+import UserImage from "../UserImage";
 import LocalSeeTwoToneIcon from '@mui/icons-material/LocalSeeTwoTone';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import GifBoxIcon from '@mui/icons-material/GifBox';
