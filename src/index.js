@@ -12,6 +12,11 @@ import Profil from "./pages/Profil/Profil";
 import NotAdminProfil from "./pages/Profil/NotAdminProfil";
 import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
+import Friends   from "./pages/Friends/Friends";
+
+import SideBar from "./components/SearchBar/SearchBar"
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -21,9 +26,11 @@ root.render(
               <Route path="/signup" element = {<SignUp/>} />
               <Route path="/signin" element = {<SignIn/>} />
               <Route path="/profil" element = {<Profil/>} />
-              <Route path="/profil1" element = {<NotAdminProfil/>} />
+              <Route path="/profil1/:id" element = {<NotAdminProfil/>} />
               <Route path="/home" element = {<Home/>} />
               <Route path="/settings" element = {<Settings/>} />
+              <Route path="/friends" element = {<Friends/>} />
+              <Route path="/search" element = {<SideBar/>} />
 
           </Routes>
       </Router>

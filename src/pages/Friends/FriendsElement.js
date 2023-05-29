@@ -1,6 +1,6 @@
 import React from 'react'
-import '../styles/elements.css'
-import UserImage from "./UserImage";
+import '../../styles/elements.css'
+import UserImage from "../../components/UserImage";
 
 function FriendsElement() {
     return (

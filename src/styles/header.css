@@ -20,7 +20,14 @@ header .logo {
 }
 
 header .middle {
+    display: flex;
+    justify-content: space-around;
     width: 400px;
+}
+header .middle .icons {
+    display: flex;
+    justify-content: space-around;
+    width:400px;
 }
 header .middle .icon-wrapper {
     display: flex;
@@ -29,6 +36,7 @@ header .middle .icon-wrapper {
     padding:5px;
     top:0;
     z-index: 100;
+    max-width: 30%;
 
 
 }
@@ -41,7 +49,7 @@ header .icon-wrapper {
 
 }
 header .third {
-    width: 400px;
+    width: 700px;
 
 }
 
@@ -62,3 +70,4 @@ header .third .separator {
     padding: 0;
     vertical-align: middle;
 }
+

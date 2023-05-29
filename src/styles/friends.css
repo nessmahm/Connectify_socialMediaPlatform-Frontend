@@ -1,0 +1,110 @@
+.friends-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+}
+.friends-page .friendCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    width: 200px ;
+    padding: 30px;
+    margin: 10px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #939597;
+    line-height: 1;
+
+}
+.friends-page .friends-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.friends-page .friendCard .userName {
+    font-weight: bold;
+    color: black;
+}
+.friends-page .friendCard .userImg{
+    width: 80px;
+
+
+}
+.friends-page .friendCard span {
+    margin:10px;
+}
+.friends-page .friendReq-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.friends-page .friendReq-section a{
+   width: 100%;
+}
+.friends-page .friendReq-section .friend-request{
+    display:flex;
+    width: 100%;
+}
+.friends-page h3 {
+width: 100%;
+
+
+}
+.friends-page .friendReq-section .seeMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f2f5;
+    color: #939597;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 40%;
+
+
+}
+.friends-page .friend-request {
+    margin-top:10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.friends-page .friendReq-section .notification span {
+    margin-right: 20px;
+}
+/*----FriendsElement--------*/
+.friends {
+    background-color: white;
+    width: 100%;
+    border-radius: 15px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.friends span {
+    font-weight: bold;
+    font-size: 15px;
+}
+.friends-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.friends-wrapper .userImg {
+    width: 60px;
+    margin: 5px;
+}

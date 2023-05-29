@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -15,6 +15,8 @@ import {Link} from "react-router-dom";
 import NotificationModal from "../../modals/NotificationModal";
 import FriendRequestModal from "../../modals/FriendRequestModal";
 import '../../styles/modal.css'
+import SearchBar from "../SearchBar/SearchBar";
+import SearchModal from "../../modals/SearchModal";
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
     const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
@@ -22,6 +24,17 @@ function Header() {
     const [userDropdown , setUserDropdown] = useState(false)
     const [notificationDropdown , setnotificationDropdown] = useState(false)
     const [friendsReqDropdown , setfriendsReqDropdown] = useState(false)
+    const [searchModal,setSearchModal] = useState(false)
+    const [searchText, setsearchText] = useState("");
+
+    useEffect(() =>
+{   },[searchText]);
+    let searchHandler = (e) => {
+        //convert input text to lower case
+        var lowerCase = e.target.value.toLowerCase();
+        setsearchText(lowerCase);
+
+    };
     const handelNotification = () => {
         setnotificationDropdown(!notificationDropdown)
         setnotificationBadge({"visible": false })
@@ -37,37 +50,38 @@ function Header() {
             <div className={"logo"}> Logo</div>
 
             <div className={"middle"}>
+                    <Link to={"/friends"} className={"icon-wrapper"}>
+                        <Diversity3OutlinedIcon color={"secondary"} />
+                    </Link>
 
-                <Link to={"/friends"} className={"icon-wrapper"}>
-                    <Diversity3OutlinedIcon color={"secondary"} />
-                </Link>
+                    <Link to={"/home"} className={"icon-wrapper"}>
 
-                <Link to={"/home"} className={"icon-wrapper"}>
+                        <HomeIcon className={"icon"} color={"secondary"} />
+                    </Link>
 
-                    <HomeIcon className={"icon"} color={"secondary"} />
-                </Link>
+                    <Link to={"/messages"} className={"icon-wrapper"}>
+                        <Badge variant="dot" invisible={!messageBadge.visible} color="secondary">
 
-                <Link to={"/messages"} className={"icon-wrapper"}>
-                    <Badge variant="dot" invisible={!messageBadge.visible} color="secondary">
-
-                    <SmsOutlinedIcon  color={"secondary"} />
-                    </Badge>
-                </Link>
+                        <SmsOutlinedIcon  color={"secondary"} />
+                        </Badge>
+                    </Link>
 
             </div>
 
-            <div className={"third"}>
-                <div className={"icon-wrapper"}>
-                    <SearchIcon className={"icon"} color={"secondary"}/>
-                </div>
 
+            <div className={"third"}>
+
+                <div className={"icon-wrapper search-element"} onClick={()=>setSearchModal(true) }>
+                    <SearchBar inputHandler={searchHandler}/>
+                </div>
+                {searchModal && <div onMouseLeave={()=>setSearchModal(false)}>  <SearchModal input={searchText} />  </div> }
                 <span className={"separator"}></span>
-                <div className={"icon-wrapper"} onClick={handelNotification}>
+                <div className={"icon-wrapper"}  onClick={handelNotification}>
                     <Badge badgeContent={notificationBadge.number} invisible={!notificationBadge.visible} color="secondary">
 
                     <NotificationsOutlinedIcon className={"icon"} />
                     </Badge>
-                    {notificationDropdown && <NotificationModal/>}
+                    {notificationDropdown &&  <div onMouseLeave={()=>setnotificationDropdown(false)}> <NotificationModal/> </div>}
 
                 </div>
 
@@ -76,7 +90,7 @@ function Header() {
 
                     <PeopleAltOutlinedIcon className={"icon"} />
                     </Badge>
-                    {friendsReqDropdown && <FriendRequestModal/>}
+                    {friendsReqDropdown && <div onMouseLeave={()=>setfriendsReqDropdown(false)}> <FriendRequestModal/> </div>}
                 </div>
 
                 <div className={"user"}>
