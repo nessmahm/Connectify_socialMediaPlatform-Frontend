@@ -39,18 +39,18 @@ function Header() {
             <div className={"middle"}>
 
                 <Link to={"/friends"} className={"icon-wrapper"}>
-                    <Diversity3OutlinedIcon  />
+                    <Diversity3OutlinedIcon color={"secondary"} />
                 </Link>
 
                 <Link to={"/home"} className={"icon-wrapper"}>
 
-                    <HomeIcon className={"icon"} />
+                    <HomeIcon className={"icon"} color={"secondary"} />
                 </Link>
 
                 <Link to={"/messages"} className={"icon-wrapper"}>
                     <Badge variant="dot" invisible={!messageBadge.visible} color="secondary">
 
-                    <SmsOutlinedIcon />
+                    <SmsOutlinedIcon  color={"secondary"} />
                     </Badge>
                 </Link>
 
@@ -58,7 +58,7 @@ function Header() {
 
             <div className={"third"}>
                 <div className={"icon-wrapper"}>
-                    <SearchIcon className={"icon"}/>
+                    <SearchIcon className={"icon"} color={"secondary"}/>
                 </div>
 
                 <span className={"separator"}></span>

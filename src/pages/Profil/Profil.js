@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/profil.css'
 import ProfilHeader from './ProfilHeader'
-import Post from "./Post";
+import Post from "../../components/Post";
 import FriendsElement from "../../components/FriendsElement";
 import PostedPostElement from "../../components/PostedPostElement";
 function Profil() {
