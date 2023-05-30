@@ -1,0 +1,1 @@
+export const serviceBaseUrl = process.env.REACT_APP_BASE_API_URL|| 'N/A';

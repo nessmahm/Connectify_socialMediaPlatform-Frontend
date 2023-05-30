@@ -1,5 +1,6 @@
 import React ,{useState}from 'react'
 import {BiRightArrowAlt} from  "react-icons/bi";
+import {getService, submit} from "../../services/api/requests.ts";
 
 function SignUp() {
     const [password, setPassword] = useState('');
@@ -7,15 +8,28 @@ function SignUp() {
     const [userName , setUserName] = useState('');
     const [repeatedPassword, setrepeatedPassword] = useState('');
     const [email, setEmail] = useState();
-    const hundelSubmit = ()=>{
-        if(!userName)
+    const handleSubmit = async ()=>{
+        /*if(!userName)
         { setEmail({...email,"userName" : "required"})}
         if(!email)
         { setEmail({...email,"email" : "required"})}
         if(!password)
         { setEmail({...email,"password" : "required"})}
         if(!repeatedPassword)
-        { setEmail({...email,"repeatedPassword" : "required"})}
+        { setEmail({...email,"repeatedPassword" : "required"})}*/
+        try {
+            console.log('here')
+            const service = getService('get-user-by-id');
+            const request = service.buildRequest({
+                userId:'12',
+            });
+            const response = await submit(request)
+            console.log(response)
+        } catch (e) {
+            console.log(e)
+        }
+
+
 
 
 
@@ -79,7 +93,7 @@ function SignUp() {
 
 
                 <div className='sign-btn'>
-                    <a href='./signin' type="submit" className='btn sign-btn2' onClick={hundelSubmit}> <span>Sign In</span><BiRightArrowAlt/></a>
+                    <button onClick={handleSubmit}> <span>Sign In</span><BiRightArrowAlt/></button>
                     <a href='./acceuil' type="submit" className='btn sign-btn1' > <span>Submit</span></a>
                 </div>
             </div>

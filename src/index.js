@@ -15,9 +15,12 @@ import Settings from "./pages/Settings/Settings";
 import Friends   from "./pages/Friends/Friends";
 
 import SideBar from "./components/SearchBar/SearchBar"
+import {registerAllEndpoints} from "./services/api/endpoints/registerAllEndpoints.ts";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+registerAllEndpoints();
+
 root.render(
   <React.StrictMode>
       <Router>
