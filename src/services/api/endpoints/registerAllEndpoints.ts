@@ -1,5 +1,5 @@
-import { registerService } from '../requests.ts';
-import userEndpoints from './user.ts';
+import { registerService } from '../requests';
+import userEndpoints from './user';
 export const registerAllEndpoints = () => {
   userEndpoints.forEach(registerService);
 }

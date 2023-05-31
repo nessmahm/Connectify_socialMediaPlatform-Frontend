@@ -1,5 +1,17 @@
 import { ServiceDefinition } from '../requests';
 
+export type createUserRequestData = {
+  username: string;
+
+  phoneNumber: string;
+
+  gender: 'MALE' | 'FEMALE';
+
+  email: string;
+
+  password: string;
+};
+
 export const definitions: ServiceDefinition[] = [
   {
     id: 'get-all-users',
@@ -23,12 +35,30 @@ export const definitions: ServiceDefinition[] = [
   {
     id: 'get-user-by-id',
     method: 'GET',
-    endpoint: 'user/:userId',
+    endpoint: '/user/:userId',
     description: 'Retrieve a user.',
     buildRequest:(data:any) => ({
       serviceId: 'get-user-by-id',
       urlParams: { ...data },
     })
-  }
+  },
+  {
+    id: 'create-user',
+    method: 'POST',
+    endpoint: '/user',
+    buildRequest: (data: createUserRequestData) => ({
+      serviceId: 'create-user',
+      body: { ...data },
+    })
+  },
+  {
+    id: 'sign-in',
+    method: 'POST',
+    endpoint : '/user/login',
+    buildRequest: (data: any) => ({
+      serviceId: 'sign-in',
+      body: { ...data },
+    }),
+  },
 ];
 export default definitions;

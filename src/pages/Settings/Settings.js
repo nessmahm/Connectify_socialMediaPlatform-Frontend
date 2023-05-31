@@ -4,7 +4,7 @@ import '../../styles/settings.css'
 import Alert from "@mui/joy/Alert";
 function Settings() {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
+    const [login, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
 
@@ -27,7 +27,7 @@ function Settings() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Perform the update logic with the updated values (e.g., make an API call)
-        console.log('Updated values:', { username, email, phoneNumber, password });
+        console.log('Updated values:', { username, login, phoneNumber, password });
         // Reset the form fields if needed
         setUsername('');
         setEmail('');
@@ -48,7 +48,7 @@ function Settings() {
                 <br />
                 <label>
                     <span> Email: </span>
-                    <Input type="email" value={email} onChange={handleEmailChange} />
+                    <Input type="login" value={login} onChange={handleEmailChange} />
                 </label>
                 <br />
                 <label>

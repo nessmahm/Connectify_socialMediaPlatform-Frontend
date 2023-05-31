@@ -13,8 +13,9 @@ export type IoSuccessResult = {
 export type IoOutput = {
   success: boolean;
   status: IoStatusType;
-  result?: IoSuccessResult;
+  data?: IoSuccessResult;
   error?: IoError
+  message?: string;
 };
 
 // eslint-disable-next-line no-console

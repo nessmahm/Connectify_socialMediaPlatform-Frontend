@@ -1,6 +1,5 @@
-import { serviceBaseUrl } from './config.ts';
-import { isValidServiceResponse } from './io.ts';
-import { IoOutput } from './io.ts';
+import { serviceBaseUrl } from './config';
+import { IoOutput } from './io';
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
@@ -20,7 +19,7 @@ export type ServiceResponse = IoOutput;
 
 export type ServiceDefinition = {
   id: string;
-  description: string,
+  description?: string,
   endpoint: string,
   method: HttpMethod,
   buildRequest: (
