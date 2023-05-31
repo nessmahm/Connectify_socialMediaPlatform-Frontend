@@ -1,6 +1,6 @@
 import React from 'react'
 import PostedPostElement from "../../components/Posts/PostedPostElement";
-import Post from "../../components/Posts/Post";
+import Post from "../../components/Posts/Post.tsx";
 import '../../styles/home.css'
 import FriendsElement from "../Friends/FriendsElement";
 function Home() {

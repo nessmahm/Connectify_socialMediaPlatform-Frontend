@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import '../../styles/profil.css'
 import ProfilHeader from './ProfilHeader'
-import Post from "../../components/Posts/Post";
+import Post from "../../components/Posts/Post.tsx";
 import FriendsElement from "../Friends/FriendsElement";
 import PostedPostElement from "../../components/Posts/PostedPostElement";
 function NotAdminProfil() {

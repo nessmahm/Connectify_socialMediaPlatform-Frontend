@@ -6,9 +6,11 @@ import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import GifBoxIcon from '@mui/icons-material/GifBox';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
 import {Button} from "@mui/joy";
+
 function Post() {
     const [postModal, setPostModal] = useState(false);
-    const [post,setPost] = useState({ "content": '', "images": [], "files": [], "videos": [] , "gif": []});
+    const [post,setPost] = useState({});
+    console.log("postdata",post)
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -68,7 +70,7 @@ function Post() {
 
                     </div>
 
-                   <Button onClick={submitPost} variant="contained" color="primary">Post</Button>
+                   <Button onClick={submitPost} variant="plain" color="primary">Post</Button>
 
 
                 </div>
