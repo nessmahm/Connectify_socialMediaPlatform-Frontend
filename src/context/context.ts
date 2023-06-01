@@ -5,6 +5,7 @@ export type User = {
   username: string;
   phoneNumber: number;
   email: string;
+  image: string;
   id: string;
   gender: 'MALE' | 'FEMALE';
 }
