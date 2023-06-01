@@ -2,6 +2,7 @@ import  { createContext, useState } from 'react';
 
 export type User = {
   createdAt: Date;
+  deletedAt: Date;
   username: string;
   phoneNumber: number;
   email: string;

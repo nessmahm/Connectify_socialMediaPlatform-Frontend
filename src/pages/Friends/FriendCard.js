@@ -1,13 +1,13 @@
 import React from 'react'
 import UserImage from "../../components/UserImage";
-//get user by id
+import {formatDate} from "../../Props/DateFormat"
 function FriendCard({user}) {
+
     return (
         <div className={"friendCard"}>
-            <UserImage img={user.userImage}/>
+            <UserImage img={user.image}/>
             <span className={"userName"}>  {user.username}</span>
-            <span>{user.joinedDate}</span>
-            <span><strong>{user.userFriends.length} </strong> Friends </span>
+            <span>{formatDate(user.createdAt)}</span>
 
         </div>
     )

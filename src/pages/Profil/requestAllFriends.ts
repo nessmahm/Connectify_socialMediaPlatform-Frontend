@@ -4,11 +4,10 @@ import { PostData } from '../../components/Posts/Post';
     import { submit } from '../../services/api/requests';
     import { getService } from '../../services/api/requests';
     import { ViewStatusType } from '../Sign/SignUp';
-import {FriendElementProps} from "../Friends/FriendsElement";
 
     export const requestAllFriends = async (
         userId: string,
-        setFriends: (friends: FriendElementProps[]) => void,
+        setFriends: (friends: User[]) => void,
         setStatus: (status: ViewStatusType) => void,
         setErrorMessage: (message: string | undefined) => void,
         token: string,
@@ -34,7 +33,7 @@ import {FriendElementProps} from "../Friends/FriendsElement";
                 setErrorMessage(response.message)
                 return;
             }
-            setFriends(response.data.friends as FriendElementProps[])
+            setFriends(response.data as User[])
             setStatus('success');
         } catch (e) {
             console.log(e)

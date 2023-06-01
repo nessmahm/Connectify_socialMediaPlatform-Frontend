@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import '../../styles/profil.css'
 import ProfilHeader from './ProfilHeader'
 import Post from "../../components/Posts/Post";
-import FriendsElement, {FriendElementProps, FriendsElementProps} from "../Friends/FriendsElement";
+import FriendsElement, {FriendsElementProps} from "../Friends/FriendsElement";
 import PostedPostElement from "../../components/Posts/PostedPostElement";
 import {useParams} from "react-router-dom";
 import {requestAllPosts} from "./requestAllPosts";
@@ -11,12 +11,14 @@ import {PostedPostProps} from "../../components/Posts/PostedPostElement";
 import {LoadingSpinner} from "../../components/LoadingSpinner/LoadingSpinner";
 import {requestAllFriends} from "./requestAllFriends";
 import {requestUser} from "./requestUser";
+import {formatDate} from "../../Props/DateFormat"
+
 function Profil() {
     const { token, user: loggedInUser } = useContext(AuthContext);
     const [posts, setPosts] = useState<PostedPostProps[]>([]);
     const [status, setStatus] = useState('normal');
     const [user, setUser] = useState<User>();
-    const [friends, setFriends] = useState<FriendElementProps[]>([]);
+    const [friends, setFriends] = useState<User[]>([]);
     const [errorMessage, setErrorMessage] = useState('');
     const {userId}=useParams();
     console.log("logged user " , loggedInUser);
@@ -36,7 +38,7 @@ function Profil() {
         <div className={"profil"}>
 
             {user && (
-                <ProfilHeader username={user.username} joined={user.createdAt} image={user.image} userState={loggedInUser ? true : false } friends={friends.length } />
+                <ProfilHeader username={user.username} joined={formatDate(user.createdAt)} image={user.image} userState={loggedInUser ? true : false } friends={friends.length } />
                 )
             }
             <div className={"profile-body"}>
