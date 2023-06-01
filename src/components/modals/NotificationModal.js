@@ -1,6 +1,6 @@
 import React from 'react'
-import Notification from "../components/Notifications/Notification";
-import '../styles/modal.css'
+import Notification from "../Notifications/Notification.js";
+import '../../styles/modal.css'
 function NotificationModal() {
     return (
         <div className={"notification-modal modaal "}>

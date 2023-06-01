@@ -33,7 +33,7 @@ export const requestAllPosts = async (
       setErrorMessage(response.message)
       return;
     }
-    setPosts(response.data.posts as PostedPostProps[])
+    setPosts(response.data  as PostedPostProps[])
     setStatus('success');
   } catch (e) {
     console.log(e)

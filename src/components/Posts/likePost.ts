@@ -3,22 +3,21 @@ import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 
-export const addComment = async (
-  content: string | undefined,
+export const likePost = async (
   postId: string | undefined,
-  setNumberOfComments: React.Dispatch<React.SetStateAction<number>>,
-  setStatus: (status: ViewStatusType) => void,
+  setLiked: (like: boolean) => void,
+  setNumberOfLikes: React.Dispatch<React.SetStateAction<number>>,
   setErrorMessage: (message: string | undefined) => void,
   token: string,
 ) => {
   try {
-    const service = getService('add-comment');
+    const service = getService('like-post');
     if (!service) {
       throw Error('invalid service');
     }
     const bearerToken = 'Bearer ' + token;
     const request = service.buildRequest({
-      content
+      postId
     }, { Authorization: bearerToken}, {postId})
     if (!request) {
       setErrorMessage('Invalid request');
@@ -27,12 +26,11 @@ export const addComment = async (
     const response = await submit(request)
     console.log("res",response)
     if (response.message) {
-      setStatus("error")
       setErrorMessage(response.message)
       return;
     }
-    setNumberOfComments((numberOfComments) => numberOfComments + 1);
-    setStatus('success');
+    setLiked(true)
+    setNumberOfLikes((numberOfLikes) => numberOfLikes + 1);
   } catch (e) {
     console.log(e)
   }

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import React, {useState} from 'react'
 import { AuthContext } from '../../context/context';
 import { AuthContextType } from '../../context/context';
-import PostModal from "../../modals/PostModal";
+import PostModal from "../modals/PostModal";
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 import UserImage from "../UserImage";
 import LocalSeeTwoToneIcon from '@mui/icons-material/LocalSeeTwoTone';

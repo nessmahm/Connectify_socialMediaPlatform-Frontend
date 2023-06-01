@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import UserImage from "../components/UserImage";
+import UserImage from "../UserImage.js";
 import {Link} from "react-router-dom";
 
 function SearchModal({input}) {

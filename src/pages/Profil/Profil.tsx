@@ -54,8 +54,13 @@ function Profil() {
                                 id={post.id}
                                 content={post.content}
                                 comments={post.comments}
-                                username={loggedInUser.username}
-                                date={post.date}
+                                owner={user}
+                                createdAt={post.createdAt}
+                                numberOfComments={post.numberOfComments}
+                                numberOfLikes={post.numberOfLikes}
+                                likes={post.likes}
+                                isLiked={post.isLiked}
+                                imageUrl={post.imageUrl}
                             />
                         ))
                     }

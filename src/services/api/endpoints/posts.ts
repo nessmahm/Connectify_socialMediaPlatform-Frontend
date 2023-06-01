@@ -16,7 +16,7 @@ const definitions: ServiceDefinition[] = [
   {
     id: 'get-all-posts',
     method: 'GET',
-    endpoint: '/user/posts/:userId',
+    endpoint: '/post/get-by-user/:userId',
     description: 'Get all posts of a user',
     buildRequest: (data: any, headers) => ({
       serviceId: 'get-all-posts',
@@ -34,6 +34,28 @@ const definitions: ServiceDefinition[] = [
       body: { ...data },
       headers,
       urlParams: {...params},
+    }),
+  },
+  {
+    id: 'like-post',
+    method: 'POST',
+    endpoint: '/post/like/:postId',
+    description: 'Like a post.',
+    buildRequest: (data: any, headers) => ({
+      serviceId: 'like-post',
+      urlParams: {...data},
+      headers,
+    }),
+  },
+  {
+    id: 'dislike-post',
+    method: 'DELETE',
+    endpoint: '/post/dislike/:postId',
+    description: 'Dislike a post.',
+    buildRequest: (data: any, headers) => ({
+      serviceId: 'dislike-post',
+      urlParams: {...data},
+      headers,
     }),
   },
 ];

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import React, {useContext, useState} from 'react'
 import '../../styles/sign.css';
 import {BiRightArrowAlt} from  "react-icons/bi";
@@ -19,10 +20,25 @@ function SignIn() {
     const handleSubmit = () => {
         handleSignInClick(login,password,contextLogin,setStatus,setErrorMessage);
         }
+    useEffect(() => {
+        if (status === 'success') {
+            setTimeout(() => {
+                navigate('/', {replace: true})
+            }, 1500);
+        }},[status]);
     if (status === 'loading') {
       return (
         <LoadingSpinner/>
       )
+    }
+
+    if (status === 'success') {
+        return (
+            <div className='success-sign-in-container'>
+                <h3>Sign In Successful. Redirecting...</h3>
+                <LoadingSpinner />
+            </div>
+        )
     }
 
   return (

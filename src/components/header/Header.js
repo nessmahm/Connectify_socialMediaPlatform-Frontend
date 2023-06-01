@@ -10,13 +10,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import user from '../../assets/images/user.png'
-import UserDropDown from "../../modals/UserDropDown";
+import UserDropDown from "../modals/UserDropDown";
 import {Link} from "react-router-dom";
-import NotificationModal from "../../modals/NotificationModal";
-import FriendRequestModal from "../../modals/FriendRequestModal";
+import NotificationModal from "../modals/NotificationModal";
+import FriendRequestModal from "../modals/FriendRequestModal";
 import '../../styles/modal.css'
 import SearchBar from "../SearchBar/SearchBar";
-import SearchModal from "../../modals/SearchModal";
+import SearchModal from "../modals/SearchModal";
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
     const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
