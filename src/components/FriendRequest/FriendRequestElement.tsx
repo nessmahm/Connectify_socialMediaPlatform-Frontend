@@ -35,14 +35,22 @@ function FriendRequestElement() {
                     className={"signIn-error"}
                 >Friend Added Succefully </Alert>
             }
-            {friendRequests && friendRequests.map((request) => (
-                <FriendRequest user={request.sender} requestId={request.requestId} setRequests={setFriendRequests} setRequestState={setRequestState} requestDate={request.requestDate} key={request.requestId}/>
 
-            ))
-            }
-            {!friendRequests && <span> No friend requests </span>
+            {friendRequests && friendRequests?.length > 0 ?
+              (
+                friendRequests.map((request) => (
+                  <FriendRequest user={request.sender} requestId={request.requestId} setRequests={setFriendRequests}
+                                 setRequestState={setRequestState} requestDate={request.requestDate}
+                                 key={request.requestId}/>
 
+                ))
+              ) :
+
+              (
+                <span> No friend requests </span>
+              )
             }
+
         </div>
     )
 }

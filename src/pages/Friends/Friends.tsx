@@ -51,14 +51,18 @@ function Friends() {
             <div className={"friends-section"}>
                 <h3>Friends List </h3>
 
-                {friends && friends.map((friend) => (
+                {friends.length>0 ?
+                (friends.map((friend) => (
                     <Link to={"/profil/"+friend.id} key={friend.id}>
                         <FriendCard user={friend}  />
                     </Link>
-                ))}
-                {
-                    !friends && <span> No Friends Yet </span>
+                )))
+                :
+                <span> No Friends Yet </span>
                 }
+
+
+
             </div>
             </>
             }
