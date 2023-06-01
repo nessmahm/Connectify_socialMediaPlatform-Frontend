@@ -5,6 +5,7 @@ import { useState } from 'react';
 import React from 'react'
 import { User } from '../../context/context';
 import { AuthContext } from '../../context/context';
+import { formatDate } from '../../Props/DateFormat';
 import { addComment } from './addComment';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 import UserImage from "../UserImage";
@@ -110,7 +111,7 @@ function PostedPostElement(props: PostedPostProps) {
                 <UserImage/>
                 <div className={"info"}>
                   {owner && (<span>{owner.username}</span>)}
-                  {createdAt && (<span>{createdAt.toString()}</span>)}
+                  {createdAt && (<span>{formatDate(createdAt)}</span>)}
                 </div>
             </div>
 

@@ -44,7 +44,7 @@ function Profil() {
             <div className={"profile-body"}>
                 <div className={"partOne"}>
                     {
-                        friends.length &&  <FriendsElement friends={friends}/>
+                        friends && friends.length > 0 &&  <FriendsElement friends={friends}/>
                     }
                 </div>
 

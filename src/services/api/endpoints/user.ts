@@ -14,15 +14,6 @@ export type createUserRequestData = {
 
 export const definitions: ServiceDefinition[] = [
   {
-    id: 'get-all-users',
-    method: 'GET',
-    endpoint: '/user',
-    description: 'Get all users',
-    buildRequest: () => ({
-      serviceId: 'get-all-users',
-    }),
-  },
-  {
     id: 'delete-user',
     method: 'DELETE',
     endpoint: '/user/delete/:userId',
@@ -58,6 +49,15 @@ export const definitions: ServiceDefinition[] = [
     buildRequest: (data: any) => ({
       serviceId: 'sign-in',
       body: { ...data },
+    }),
+  },
+  {
+    id: 'get-all-users',
+    method : 'GET',
+    endpoint: '/user/non-friends-users',
+    buildRequest: (headers) => ({
+      serviceId: 'get-all-users',
+      headers,
     }),
   },
 ];

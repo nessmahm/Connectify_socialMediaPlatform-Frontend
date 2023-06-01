@@ -20,6 +20,7 @@ function ProfilHeader(props:any){
                     <span> Joined {joined} </span>
                     <span> <strong>{friends}</strong>  friends</span>
                 </div>
+              <FriendRequestButton state={userState} />
 
                 { !userState && <FriendRequestButton state={"connect"} />        }
 

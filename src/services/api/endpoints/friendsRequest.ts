@@ -10,15 +10,14 @@ export const definitions: ServiceDefinition[] = [
             headers
         }),
     },{
-        id: 'send-a-friend-request',
+        id: 'send-friend-request',
         method: 'POST',
         endpoint: '/friend-request',
         description: 'send a friend request',
         buildRequest: (data:any,headers) => ({
-            serviceId: 'get-all-connecteduser-friends',
+            serviceId: 'send-friend-request',
             body: { ...data },
             headers
-
         }),
     },{
         id: 'get-all-sent-friend-requests',

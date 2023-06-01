@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
@@ -17,6 +17,7 @@ import FriendRequestModal from "../modals/FriendRequestModal";
 import '../../styles/modal.css'
 import SearchBar from "../SearchBar/SearchBar";
 import SearchModal from "../modals/SearchModal";
+import {AuthContext} from "../../context/context";
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
     const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
@@ -26,6 +27,7 @@ function Header() {
     const [friendsReqDropdown , setfriendsReqDropdown] = useState(false)
     const [searchModal,setSearchModal] = useState(false)
     const [searchText, setsearchText] = useState("");
+    const { token, user } = useContext(AuthContext);
 
     useEffect(() =>
 {   },[searchText]);
@@ -47,14 +49,14 @@ function Header() {
     return (
         <div>
         <header>
-            <div className={"logo"}> Logo</div>
+            <div className={"logo"}> ConnectiFy </div>
 
             <div className={"middle"}>
                     <Link to={"/friends"} className={"icon-wrapper"}>
                         <Diversity3OutlinedIcon color={"secondary"} />
                     </Link>
 
-                    <Link to={"/home"} className={"icon-wrapper"}>
+                    <Link to={"/"} className={"icon-wrapper"}>
 
                         <HomeIcon className={"icon"} color={"secondary"} />
                     </Link>
@@ -94,8 +96,8 @@ function Header() {
                 </div>
 
                 <div className={"user"}>
-                    <span>{"userName"}</span>
-                    <img src={user}  alt={"user"} onClick={()=>setUserDropdown(!userDropdown)}/>
+                    <span>{user && user.username}</span>
+                    <img src={user.image}  alt={"user"} onClick={()=>setUserDropdown(!userDropdown)}/>
                     {userDropdown && <UserDropDown/>}
 
                 </div>

@@ -25,3 +25,9 @@ height: 100vh;
     position: fixed;
 
 }
+.home-page {
+    display: flex;
+    flex-direction: column;
+    flex-gap: 20px;
+    align-items: center;
+}
