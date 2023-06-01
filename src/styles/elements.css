@@ -596,3 +596,6 @@ color: #989797;
 
 .search-container:hover{
 }
+.delete-button-container {
+    margin-left: auto;
+}

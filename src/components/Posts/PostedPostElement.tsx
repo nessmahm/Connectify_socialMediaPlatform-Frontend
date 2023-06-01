@@ -1,3 +1,4 @@
+import Alert from '@mui/joy/Alert';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
@@ -11,6 +12,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Comment from "./Comment";
 import { dislikePost } from './dislikePost';
+import { handleCommentDeleteClick } from './handleCommentDeleteClick';
 import { likePost } from './likePost';
 
 export type CommentType = {
@@ -18,7 +20,11 @@ export type CommentType = {
   content: string;
   writer: User;
   createdAt: Date;
+  canEdit?: boolean;
+  commentStatus?: 'normal' | 'deleted';
+  onDeleteCLick?: () => void;
 }
+
 export type PostedPostProps = {
   id: string;
   content: string;
@@ -31,6 +37,9 @@ export type PostedPostProps = {
   isLiked: boolean;
   createdAt?: Date;
 
+}
+export type CommentStatusMap = {
+  [key: string]: 'normal' | 'deleted';
 }
 function PostedPostElement(props: PostedPostProps) {
   const {
@@ -46,15 +55,19 @@ function PostedPostElement(props: PostedPostProps) {
     createdAt,
   } = props
   const [comment, setComment] = useState<string>();
-  const [status, setStatus] = useState<ViewStatusType>();
+  const [status, setStatus] = useState<ViewStatusType>('normal');
   const [errorMessage, setErrorMessage] = useState<string>();
+  const [successMessage, setSuccessMessage] = useState<string>();
   const [isLiked, setIsLiked] = useState<boolean>(isLikedProp);
   const [numberOflikes, setNumberOfLikes] = useState<number>(numberOfLikesProp);
   const [numberOfComments, setNumberOfComments] = useState<number>(numberOfCommentsProp);
-  const { token } = useContext(AuthContext);
+  const [commentStatusMap, setCommentStatusMap] = useState<CommentStatusMap>();
+  const [postComments, setPostComments] = useState<CommentType[]>(comments);
+  const { token, user } = useContext(AuthContext);
   const handleAddCommentClick = () => addComment(
     comment,
     id,
+    setPostComments,
     setNumberOfComments,
     setStatus,
     setErrorMessage,
@@ -74,6 +87,25 @@ function PostedPostElement(props: PostedPostProps) {
     setErrorMessage, token);
     return (
         <div className={"posted-post"}>
+          {status === 'error' && errorMessage && (
+            <Alert
+              color="danger"
+              size="md"
+              variant="soft"
+              className={"signIn-error"}
+          >
+              {errorMessage}
+            </Alert>
+          )}
+          {status === 'success' && successMessage && (
+            <Alert
+              color="success"
+              size="md"
+              variant="soft"
+            >
+              {successMessage}
+            </Alert>
+          )}
             <div className={"header"}>
                 <UserImage/>
                 <div className={"info"}>
@@ -108,16 +140,25 @@ function PostedPostElement(props: PostedPostProps) {
 
 
                 <div className={"comments"}>
-                  {comments && comments.length > 0 && comments.map((comment) => (
+                  {postComments && postComments.length > 0 && postComments.map((comment) => (
                     <Comment
                       key={comment.id}
                       id={comment.id}
                       content={comment.content}
                       writer={comment.writer}
                       createdAt={comment.createdAt}
+                      canEdit={comment.writer?.id === user?.id }
+                      commentStatus={commentStatusMap?.[comment.id]}
+                      onDeleteCLick={() => handleCommentDeleteClick(comment.id,
+                        setStatus,
+                        setErrorMessage,
+                        setSuccessMessage,
+                        setNumberOfComments,
+                        setCommentStatusMap,
+                        token)}
                     />
                   ))}
-                                  </div>
+                </div>
           <input className="input-container" onChange={(e) => setComment(e.target.value)} />
           <button className="button-container" onClick={handleAddCommentClick}>Post</button>
 

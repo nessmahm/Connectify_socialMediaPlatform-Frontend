@@ -58,5 +58,16 @@ const definitions: ServiceDefinition[] = [
       headers,
     }),
   },
+  {
+    id: 'delete-comment',
+    method: 'DELETE',
+    endpoint: '/comment/delete/:commentId',
+    description: 'Delete a comment.',
+    buildRequest: (data: any, headers) => ({
+      serviceId: 'delete-comment',
+      urlParams: {...data},
+      headers,
+    }),
+  },
 ];
 export default definitions;
