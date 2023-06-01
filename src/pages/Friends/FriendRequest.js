@@ -5,7 +5,7 @@ import {Button} from "@mui/joy";
 function FriendRequest({user}) {
     return (
         <div className={"friend-request"}>
-            <UserImage/>
+            <UserImage />
             <div className={"notification"}>
                 <span> <strong>{user.username} </strong></span>
                 <span>{user.joinedDate}</span>
