@@ -26,7 +26,7 @@ export const addPost = async (
       }})
       const response = await res.json() as IoOutput
       console.log('response', response);
-      if (response.message) {
+      if (response.message || ! response || response.data.status === 400) {
         setStatus("error")
         setErrorMessage(response.message)
         return;

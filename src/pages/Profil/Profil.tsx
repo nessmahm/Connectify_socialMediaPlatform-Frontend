@@ -38,7 +38,7 @@ function Profil() {
         <div className={"profil"}>
 
             {user && (
-                <ProfilHeader username={user.username} joined={formatDate(user.createdAt)} image={user.image} userState={loggedInUser ? true : false } friends={friends.length } />
+                <ProfilHeader username={user?.username} joined={formatDate(user?.createdAt)} image={user?.image} userState={loggedInUser ? true : false } friends={friends.length } />
                 )
             }
             <div className={"profile-body"}>

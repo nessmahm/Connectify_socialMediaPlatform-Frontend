@@ -23,7 +23,7 @@ export const requestAllFriendRequests = async (
         }
         const response = await submit(request)
         console.log("res",response)
-        if (response.message) {
+        if (response.message || !response || response.data.status === 400 ) {
             setStatus("error")
             setErrorMessage(response.message)
             return;

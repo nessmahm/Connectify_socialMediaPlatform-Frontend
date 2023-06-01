@@ -21,12 +21,13 @@ function FriendRequest(props:any) {
     }
 
     return (
+        user &&
         <div className={"friend-request"}>
 
 
-                    <UserImage img={user.image} />
-                    <Link  className={"notification"} to={"/profil/"+user.id} key={user.id}>
-                        <span> <strong>{user.username} </strong></span>
+                    <UserImage img={user?.image} />
+                    <Link  className={"notification"} to={"/profil/"+user?.id} key={user?.id}>
+                        <span> <strong>{user?.username} </strong></span>
                         <span>{ formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
 
                     </Link>

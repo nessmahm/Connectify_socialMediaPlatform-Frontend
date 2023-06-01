@@ -22,29 +22,27 @@ function SearchModal({input}) {
             return el.username.toLowerCase().includes(input)
         }
     })
-    return (
-        <div className={"modaal search-modal"}>
+    return <div className={"modaal search-modal"}>
 
-            {filteredData && filteredData.map((user) => (
-                <Link key={user.id} to={`profil1/${user.userName}/${user.id}`}>
-                    <User user={user} />
-                </Link>
-            ))}
-            {filteredData.length==0 && <div className={"empty-modal"}><span >no user found</span></div>
+        {filteredData && filteredData.map((user) =>
+            {user && (<Link key={user?.id} to={`profil1/${user?.userName}/${user?.id}`}>
+                <User user={user} />
+            </Link>)}
+        )}
+        {filteredData.length==0 && <div className={"empty-modal"}><span >no user found</span></div>
 
-            }
-        </div>
-    )
+        }
+    </div>
 }
 
 function User ({user}) {
     return (
-        <div className={"user"}>
+       user &&( <div className={"user"}>
             <UserImage/>
             <div className={"details"}>
-                <span> <strong>{user.username} </strong> </span>
+                <span> <strong>{user?.username} </strong> </span>
                 <span>{"connected"}</span>        </div>
-            </div>
+            </div>)
     )
 
 }

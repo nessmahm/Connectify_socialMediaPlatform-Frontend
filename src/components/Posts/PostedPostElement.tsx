@@ -143,11 +143,11 @@ function PostedPostElement(props: PostedPostProps) {
                 <div className={"comments"}>
                   {postComments && postComments.length > 0 && postComments.map((comment) => (
                     <Comment
-                      key={comment.id}
-                      id={comment.id}
-                      content={comment.content}
-                      writer={comment.writer}
-                      createdAt={comment.createdAt}
+                      key={comment?.id}
+                      id={comment?.id}
+                      content={comment?.content}
+                      writer={comment?.writer}
+                      createdAt={comment?.createdAt}
                       canEdit={comment.writer?.id === user?.id }
                       commentStatus={commentStatusMap?.[comment.id]}
                       onDeleteCLick={() => handleCommentDeleteClick(comment.id,
