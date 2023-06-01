@@ -7,7 +7,7 @@ function Home() {
     return (
         <div className={"home-page"}>
             <div className={"partOne"}>
-                <FriendsElement/>
+                <FriendsElement user={"this user "}/>
 
             </div>
             <div className={"partTwo"}>

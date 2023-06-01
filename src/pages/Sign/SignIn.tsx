@@ -3,10 +3,9 @@ import '../../styles/sign.css';
 import {BiRightArrowAlt} from  "react-icons/bi";
 import Alert from '@mui/joy/Alert';
 import { useNavigate } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 import { AuthContext, AuthContextType } from "../../context/context";
-import { handleSignInClick } from './handleSignInClick';
+import { handleSignInClick } from './handleSignInClick'
 
 function SignIn() {
     const [login, setLogin] = useState('');

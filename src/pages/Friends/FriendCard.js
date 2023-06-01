@@ -1,6 +1,6 @@
 import React from 'react'
 import UserImage from "../../components/UserImage";
-
+//get user by id
 function FriendCard({user}) {
     return (
         <div className={"friendCard"}>
