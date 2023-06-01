@@ -605,6 +605,7 @@ color: #989797;
     align-items: center;
     justify-content: center;
     margin: 10px;
+    width: 20%;
 }
 
 .input-comment {
