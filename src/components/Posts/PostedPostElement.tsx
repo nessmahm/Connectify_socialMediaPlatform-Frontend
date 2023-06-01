@@ -65,7 +65,8 @@ function PostedPostElement(props: PostedPostProps) {
   const [commentStatusMap, setCommentStatusMap] = useState<CommentStatusMap>();
   const [postComments, setPostComments] = useState<CommentType[]>(comments);
   const { token, user } = useContext(AuthContext);
-  const handleAddCommentClick = () => addComment(
+const [disableComment,setDisableComment]=useState(true)
+    const handleAddCommentClick = () => addComment(
     comment,
     id,
     setPostComments,
@@ -86,6 +87,14 @@ function PostedPostElement(props: PostedPostProps) {
     setIsLiked,
     setNumberOfLikes,
     setErrorMessage, token);
+  const handelComment= (e)=>{
+      setComment(e.target.value)
+      if(comment!='') {
+          setDisableComment(true)
+      }
+    else {
+        setDisableComment(false)
+    }}
     return (
         <div className={"posted-post"}>
           {status === 'error' && errorMessage && (
@@ -160,8 +169,10 @@ function PostedPostElement(props: PostedPostProps) {
                     />
                   ))}
                 </div>
-          <input className="input-container" onChange={(e) => setComment(e.target.value)} />
-          <button className="button-container" onClick={handleAddCommentClick}>Post</button>
+          <div className={"comment-maker"}>
+              <input placeholder={"add comment"} className="input-comment" onChange={ handelComment} />
+              <button  disabled={disableComment} className="post-btn btn  " onClick={handleAddCommentClick}>Post</button>
+          </div>
 
         </div>
 

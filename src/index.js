@@ -30,7 +30,7 @@ export const App = () => (
                     <Route path="/signup" element = {<SignUp/>}/>
                     <Route path="/signin" element = {<SignIn/>} />
                     <Route path="/profil/:userId" element = {<AuthNeeded element={<Profil/>}/>} />
-                    <Route path="/profil1/:userId" element = {<AuthNeeded element = {<NotAdminProfil/>}/>} />
+                    <Route path="/profil1" element = {<AuthNeeded element = {<NotAdminProfil/>}/>} />
                     <Route path="/" element = {<AuthNeeded element={<Home/>}/>} />
                     <Route path="/settings" element = {<AuthNeeded element={<Settings/>}/>} />
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />

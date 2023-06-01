@@ -16,10 +16,11 @@ function FriendsElement(props:FriendsElementProps) {
            <span> Friends </span>
             <div className={"friends-wrapper"}>
                 {friends && friends.map((friend) => (
-                   <> <Link to={"/profil1/"+friend.id+"/"+friend.username}>
+                   <> <Link  className={"element"}to={"/profil/"+friend.id}>
                         <UserImage img={friend.image} />
-                    </Link>
-                    <span>{friend.username}</span>
+                       <span className={"user-name"}>{friend.username}</span>
+
+                   </Link>
                     </>
                 ))}
 

@@ -7,6 +7,7 @@ import { ViewStatusType } from '../Sign/SignUp';
 export const requestUser = async (
     userId: string,
     setUser: (user: User) => void,
+    setUserState:(userState:string)=>void,
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
@@ -32,7 +33,8 @@ export const requestUser = async (
             setErrorMessage(response.message)
             return;
         }
-        setUser(response.data as User)
+        setUser(response.data.user as User)
+        setUserState(response.data.userFriendship as string)
         setStatus('success');
     } catch (e) {
         console.log(e)

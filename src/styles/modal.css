@@ -88,6 +88,7 @@
 .friendreq-modal {
     right: 15%;
 
+
 }
 .search-modal {
     right: 25%;
@@ -111,3 +112,11 @@
     align-self: center;
 }
 
+.friendreq-modal div {
+    display:flex;
+    flex-direction: column;
+}
+.friendreq-modal .friend-request{
+   flex-direction: row!important;
+    width: 500px !important;
+}
