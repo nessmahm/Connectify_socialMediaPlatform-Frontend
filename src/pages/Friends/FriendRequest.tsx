@@ -21,20 +21,19 @@ function FriendRequest(props:any) {
     }
 
     return (
-        user &&
         <div className={"friend-request"}>
 
 
-                    <UserImage img={user?.image} />
-                    <Link  className={"notification"} to={"/profil/"+user?.id} key={user?.id}>
-                        <span> <strong>{user?.username} </strong></span>
-                        <span>{ formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
+                    <UserImage img={user.image} />
+                    <Link  className={"notification"} to={"/profil/"+user.id} key={user.id}>
+                        <span> <strong>{user.username} </strong></span>
+                        <span >{ formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
 
                     </Link>
 
 
-                    <Button  className={"btn"} onClick={handleAccept} ><strong>Accept</strong></Button>
-                    <Button  className={"btn"} >Reject</Button>
+                    <button  className={"btn accept-btn"} onClick={handleAccept} ><strong>Accept</strong></button>
+                    <button  className={"btn reject-btn"} >Reject</button>
 
         </div>
     )

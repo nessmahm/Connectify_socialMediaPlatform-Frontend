@@ -18,6 +18,7 @@ function Profil() {
     const [posts, setPosts] = useState<PostedPostProps[]>([]);
     const [status, setStatus] = useState('normal');
     const [user, setUser] = useState<User>();
+    const [userState, setUserState] = useState('');
     const [friends, setFriends] = useState<User[]>([]);
     const [errorMessage, setErrorMessage] = useState('');
     const {userId}=useParams();
@@ -25,8 +26,8 @@ function Profil() {
     useEffect(() => {
         requestAllPosts(userId, setPosts, setStatus, setErrorMessage, token);
         requestAllFriends(userId, setFriends, setStatus, setErrorMessage, token);
-        requestUser(userId, setUser, setStatus, setErrorMessage, token);
-        console.log(user)
+        requestUser(userId, setUser,setUserState, setStatus, setErrorMessage, token);
+        console.log("user",user)
 
     }, [loggedInUser]);
     if (status === 'loading') {
@@ -72,5 +73,4 @@ function Profil() {
         </div>
     )
 }
-
 export default Profil
