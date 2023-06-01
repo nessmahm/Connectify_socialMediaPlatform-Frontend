@@ -35,7 +35,7 @@ export const definitions: ServiceDefinition[] = [
   {
     id: 'get-user-by-id',
     method: 'GET',
-    endpoint: '/user/:userId',
+    endpoint: '/user/findone/:userId',
     description: 'Retrieve a user.',
     buildRequest:(data:any) => ({
       serviceId: 'get-user-by-id',
