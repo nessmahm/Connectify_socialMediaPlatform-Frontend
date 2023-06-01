@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useState } from 'react';
 import React from 'react'
+import { User } from '../../context/context';
 import { AuthContext } from '../../context/context';
 import { addComment } from './addComment';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
@@ -9,9 +10,13 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Comment from "./Comment";
 
+export type CommentType = {
+  content: string;
+  owner: User;
+}
 export type PostedPostProps = {
   content: string | undefined;
-  comments: [];
+  comments: CommentType[];
   username: string,
   date: string,
   id: string

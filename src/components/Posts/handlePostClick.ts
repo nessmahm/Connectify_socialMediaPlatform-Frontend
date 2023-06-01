@@ -14,10 +14,9 @@ export const addPost = async (
       setStatus('loading')
       const service = getService('add-post');
       const formData = new FormData();
-      console.log('data', data.file[0])
-      formData.append('file', data.file[0])
+      if (data?.file)
+        {formData.append('file', data.file[0])}
       formData.append('content', data.content)
-      formData.append('test', 'heyy')
       const bearerToken = 'Bearer ' + token;
       const res  = await fetch(process.env.REACT_APP_BASE_API_URL+'/post/add', {
         method: 'POST',
