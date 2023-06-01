@@ -1,15 +1,27 @@
+import { useContext } from 'react';
 import React, {useState} from 'react'
+import { AuthContext } from '../../context/context';
+import { AuthContextType } from '../../context/context';
 import PostModal from "../../modals/PostModal";
+import { ViewStatusType } from '../../pages/Sign/SignUp';
 import UserImage from "../UserImage";
 import LocalSeeTwoToneIcon from '@mui/icons-material/LocalSeeTwoTone';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import GifBoxIcon from '@mui/icons-material/GifBox';
 import FilePresentIcon from '@mui/icons-material/FilePresent';
 import {Button} from "@mui/joy";
+import { addPost } from './handlePostClick';
 
+export type PostData = {
+    file?: File;
+    content?: string;
+}
 function Post() {
     const [postModal, setPostModal] = useState(false);
-    const [post,setPost] = useState({});
+    const [post,setPost] = useState<PostData>({});
+    const [status, setStatus] = useState<ViewStatusType>();
+    const [errorMessage, setErrorMessage] = useState<string>();
+    const { token } = useContext<AuthContextType>(AuthContext);
     console.log("postdata",post)
 
     const handleChange = (e) => {
@@ -28,6 +40,12 @@ function Post() {
         }
     };
         const submitPost = () => {
+            addPost(
+              post,
+              setStatus,
+              setErrorMessage,
+              token,
+            )
     }
 
     return (

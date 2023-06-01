@@ -7,7 +7,7 @@ import {AuthContext} from "../../context/context";
 import {handleSignUpClick} from "./handleSignUpClick";
 import {Alert} from "@mui/material";
 
-export type viewStatusType = 'normal' | 'error' | 'success' | 'loading'
+export type ViewStatusType = 'normal' | 'error' | 'success' | 'loading'
 function SignUp() {
     const [password, setPassword] = useState<string>('');
     const [userName , setUserName] = useState<string>('');

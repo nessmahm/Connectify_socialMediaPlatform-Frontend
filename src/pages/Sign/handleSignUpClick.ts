@@ -1,5 +1,5 @@
 import { submit, getService } from '../../services/api/requests';
-import { viewStatusType } from './SignUp';
+import { ViewStatusType } from './SignUp';
 
 export const handleSignUpClick = async (
   username: string | undefined,
@@ -7,7 +7,7 @@ export const handleSignUpClick = async (
   password: string | undefined,
   phoneNumber: number| undefined,
   gender: 'MALE' | 'FEMALE',
-  setStatus: (status: viewStatusType | undefined) => void,
+  setStatus: (status: ViewStatusType | undefined) => void,
   setErrorMessage: (message: string| undefined) => void,
   setSuccessMessage: (message: string | undefined) => void,
 ) => {

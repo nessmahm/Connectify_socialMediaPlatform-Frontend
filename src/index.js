@@ -8,7 +8,7 @@ import './styles/style.css'
 import './styles/elements.css'
 import {BrowserRouter as Router , Route , Routes } from 'react-router-dom'
 import FullHeader from './components/header/FullHeader'
-import Profil from "./pages/Profil/Profil";
+import Profil from "./pages/Profil/Profil.tsx";
 import NotAdminProfil from "./pages/Profil/NotAdminProfil";
 import Home from "./pages/Home/Home";
 import Settings from "./pages/Settings/Settings";
