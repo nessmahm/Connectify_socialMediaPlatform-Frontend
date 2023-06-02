@@ -26,7 +26,7 @@ function Profil() {
     useEffect(() => {
         requestAllPosts(userId, setPosts, setStatus, setErrorMessage, token);
         requestAllFriends(userId, setFriends, setStatus, setErrorMessage, token);
-        requestUser(userId, setUser,setUserState, setStatus, setErrorMessage, token);
+        requestUser(userId,loggedInUser?.id, setUser,setUserState, setStatus, setErrorMessage);
         console.log("user",user)
 
     }, [loggedInUser,userId]);
