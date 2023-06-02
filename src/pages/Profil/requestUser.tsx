@@ -5,12 +5,12 @@ import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../Sign/SignUp';
 
 export const requestUser = async (
+    profilId: string,
     userId: string,
     setUser: (user: User) => void,
     setUserState:(userState:string)=>void,
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
-    token: string,
 ) => {
     try {
         if (!userId) {
@@ -18,10 +18,9 @@ export const requestUser = async (
         }
         setStatus('loading')
         const service = getService('get-user-by-id');
-        const bearerToken = 'Bearer ' + token;
         const request = service.buildRequest({
-            userId
-        }, { Authorization: bearerToken})
+           profilId,userId
+        })
         if (!request) {
             setErrorMessage('Invalid request');
             return;
