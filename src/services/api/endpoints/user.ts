@@ -5,7 +5,7 @@ export type createUserRequestData = {
 
   phoneNumber: string;
 
-  gender: 'MALE' | 'FEMALE';
+  gender: 'MALE' | 'FEMALE'| 'OTHER';
 
   email: string;
 
@@ -55,9 +55,10 @@ export const definitions: ServiceDefinition[] = [
     id: 'get-all-users',
     method : 'GET',
     endpoint: '/user/non-friends-users',
-    buildRequest: (headers) => ({
+    buildRequest: (data:any,headers) => ({
       serviceId: 'get-all-users',
-      headers,
+      urlParams: { ...data },
+      headers
     }),
   },
 ];
