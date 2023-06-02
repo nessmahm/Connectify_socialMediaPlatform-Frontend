@@ -23,7 +23,7 @@ export const dislikePost = async (
     }
     const response = await submit(request)
     console.log("res",response)
-    if (response.message || ! response || response.data.status === 400) {
+    if (response.message || ! response || response.data?.status === 400) {
       setErrorMessage(response.message)
       return;
     }

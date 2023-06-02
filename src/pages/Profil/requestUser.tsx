@@ -27,13 +27,13 @@ export const requestUser = async (
         }
         const response = await submit(request)
         console.log("res",response)
-        if (response.message || !response || response.data.status === 400) {
+        if (response.message || !response || response.data?.status === 400) {
             setStatus("error")
             setErrorMessage(response.message)
             return;
         }
-        setUser(response.data.user as User)
-        setUserState(response.data.userFriendship as string)
+        setUser(response.data?.user as User)
+        setUserState(response.data?.userFriendship as string)
         setStatus('success');
     } catch (e) {
         console.log(e)

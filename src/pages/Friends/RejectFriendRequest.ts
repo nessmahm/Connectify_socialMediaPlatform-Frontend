@@ -4,18 +4,18 @@ import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../Sign/SignUp';
 import {RequestProps} from "../../Props/RequestProps";
 
-export const requestAllFriendRequests = async (
-    setFriendRequests: (friendRequests: RequestProps[]) => void,
+export const RejectFriendRequest = async (
+    requestId: string,
+    setRequests: React.Dispatch<React.SetStateAction<RequestProps[]>>,
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
 ) => {
     try {
-
         setStatus('loading')
-        const service = getService('get-all-user-friend-requests');
+        const service = getService('reject-a-friend-request');
         const bearerToken = 'Bearer ' + token;
-        const request = service.buildRequest(
+        const request = service.buildRequest({requestId},
             { Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');
@@ -23,12 +23,12 @@ export const requestAllFriendRequests = async (
         }
         const response = await submit(request)
         console.log("res",response)
-        if (response.message || !response || response.data?.status === 400 ) {
+        if (response.message || !response || response.data?.status === 400) {
             setStatus("error")
             setErrorMessage(response.message)
             return;
         }
-        setFriendRequests(response.data as RequestProps[])
+        setRequests((requests: RequestProps[]) => requests.filter((request) => request.requestId !== requestId));
         setStatus('success');
     } catch (e) {
         console.log(e)
