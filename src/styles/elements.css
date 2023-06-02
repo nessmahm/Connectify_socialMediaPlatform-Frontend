@@ -383,7 +383,29 @@ background-color: white;
     padding-top: 5px;
     margin: 20px 0px;
     border-radius: 5px;
+    text-transform: capitalize;
+
 }
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-body {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.modal-operations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .posted-post .header {
     display: flex;
     padding: 15px;
@@ -429,6 +451,10 @@ background-color: white;
     margin: 10px;
 }
 
+.posted-post .delete-button {
+    margin-left: auto;
+    color: #ea2727;
+}
 .posted-post .action .react  span{
     margin: 5px;
 
@@ -436,6 +462,7 @@ background-color: white;
 .comments {
     display: flex;
     flex-direction: column;
+    text-transform: capitalize;
 }
 
 /*------Comment-----------*/
@@ -443,6 +470,7 @@ background-color: white;
 .comment {
     display: flex;
     padding: 10px;
+    text-transform: capitalize;
 }
 .comment .details {
     display: flex;
@@ -532,7 +560,7 @@ color: #989797;
     opacity: 0;
 }
 .post .footer button {
-  background-color:gray!important;
+    background-color: #78289f;
     border-radius: 5px;
     border: none;
     color: white;
@@ -540,6 +568,10 @@ color: #989797;
     font-size: 15px;
     cursor: pointer;
     transition: scale 5s ease-in-out;
+}
+.post .footer button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
 }
 .post .footer button:active {
 
@@ -651,4 +683,11 @@ color: #989797;
 .post-btn:disabled{
     background-color:#9366a9;
     color:white;
+}
+.delete-button {
+    color: #ea2727;
+}
+.time {
+    font-weight: 400;
+    color: gray;
 }

@@ -88,7 +88,10 @@ function Post() {
 
                     </div>
 
-                   <Button onClick={submitPost} variant="plain" color="primary">Post</Button>
+                   <Button
+                     disabled={!post.content && !post.file}
+                     className="post-btn"
+                     onClick={submitPost} variant="plain" >Post</Button>
 
 
                 </div>

@@ -69,5 +69,16 @@ const definitions: ServiceDefinition[] = [
       headers,
     }),
   },
+  {
+    id: 'delete-post',
+    method: 'DELETE',
+    endpoint: '/post/delete/:postId',
+    description: 'Delete a post.',
+    buildRequest: (data: any, headers) => ({
+      serviceId: 'delete-post',
+      urlParams: {...data},
+      headers,
+    }),
+  },
 ];
 export default definitions;

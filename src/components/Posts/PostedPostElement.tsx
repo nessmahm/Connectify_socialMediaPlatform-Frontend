@@ -1,4 +1,7 @@
+import { DeleteOutlined } from '@mui/icons-material';
+import { Modal } from '@mui/joy';
 import Alert from '@mui/joy/Alert';
+import { format } from 'date-fns';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
@@ -12,6 +15,8 @@ import UserImage from "../UserImage";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Comment from "./Comment";
+import '../../styles/elements.css'
+import { deletePost } from './deletePost';
 import { dislikePost } from './dislikePost';
 import { handleCommentDeleteClick } from './handleCommentDeleteClick';
 import { likePost } from './likePost';
@@ -37,6 +42,8 @@ export type PostedPostProps = {
   numberOfComments: number;
   isLiked: boolean;
   createdAt?: Date;
+  canDelete?: boolean;
+  onDeleteClick?: () => void;
 
 }
 export type CommentStatusMap = {
@@ -54,6 +61,8 @@ function PostedPostElement(props: PostedPostProps) {
     numberOfComments: numberOfCommentsProp,
     isLiked: isLikedProp,
     createdAt,
+    canDelete,
+    onDeleteClick
   } = props
   const [comment, setComment] = useState<string>();
   const [status, setStatus] = useState<ViewStatusType>('normal');
@@ -65,9 +74,17 @@ function PostedPostElement(props: PostedPostProps) {
   const [commentStatusMap, setCommentStatusMap] = useState<CommentStatusMap>();
   const [postComments, setPostComments] = useState<CommentType[]>(comments);
   const { token, user } = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+  const handleDeletePostClick = () => {
+    setShowModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  }
 const [disableComment,setDisableComment]=useState(true)
-    const handleAddCommentClick = () => {
-      addComment(
+    const handleAddCommentClick = async () => {
+      await addComment(
         comment,
         id,
         setPostComments,
@@ -76,7 +93,8 @@ const [disableComment,setDisableComment]=useState(true)
         setErrorMessage,
         token,
       );
-      setComment(undefined)
+      setComment('')
+
     }
   const likeButtonLabel = isLiked ? 'Dislike' : 'Like';
   const imageLocalUrl = `../../images/${imageUrl}`;
@@ -90,7 +108,7 @@ const [disableComment,setDisableComment]=useState(true)
     setIsLiked,
     setNumberOfLikes,
     setErrorMessage, token);
-  const handelComment= (e)=>{
+  const handleComment= (e)=>{
       setComment(e.target.value)
     }
     return (
@@ -118,8 +136,12 @@ const [disableComment,setDisableComment]=useState(true)
                 <UserImage/>
                 <div className={"info"}>
                   {owner && (<span>{owner.username}</span>)}
-                  {createdAt && (<span>{formatDate(createdAt)}</span>)}
+                  {createdAt && (<span className="time">{format(new Date(createdAt), "dd-MM-yyyy HH:mm")}</span>)}
                 </div>
+              <DeleteOutlined
+                className="delete-button"
+                onClick={handleDeletePostClick}
+              />
             </div>
 
             <div className={"content"}>
@@ -168,9 +190,23 @@ const [disableComment,setDisableComment]=useState(true)
                   ))}
                 </div>
           <div className={"comment-maker"}>
-              <input value={comment} placeholder={"add comment"} className="input-comment" onChange={handelComment}  />
+              <input value={comment} placeholder={"add comment"} className="input-comment" onChange={handleComment}  />
               <button   className="post-btn btn  " onClick={handleAddCommentClick} disabled={!comment}>Post</button>
           </div>
+          <Modal
+             open={showModal}
+             className="modal"
+             onClose={handleCloseModal}
+              title="Delete Post"
+             >
+            <div className="modal-body">
+              <p>Are you sure you want to delete this post?</p>
+              <div className="modal-operations">
+                <button className="btn btn-danger" onClick={onDeleteClick}>Delete</button>
+                <button className="btn btn-secondary" onClick={handleCloseModal}>Cancel</button>
+              </div>
+            </div>
+          </Modal>
 
         </div>
 

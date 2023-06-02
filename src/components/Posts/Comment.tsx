@@ -36,6 +36,7 @@ function Comment(props: CommentType) {
           {true && (
             <div className="delete-button-container">
               <DeleteOutlined
+                className="delete-button"
                 role="button"
                 onClick={onDeleteCLick}
               />

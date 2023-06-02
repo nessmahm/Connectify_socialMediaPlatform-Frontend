@@ -24,7 +24,6 @@ function SignUp() {
     const navigate = useNavigate();
 
 
-    console.log("token", token)
     const handleSubmit = () => {
         handleSignUpClick(
             userName,
@@ -46,7 +45,7 @@ function SignUp() {
 
                 navigate('/signin', { replace: true });
 
-            }, );
+            },1500);
 
         }
     }, [status]);
@@ -56,8 +55,8 @@ function SignUp() {
           <LoadingSpinner/>
         )
     }
-if  (status !== 'success')
-{return (
+
+    return (
         <div className='sign-container'>
             <div className='signImage'>
             <span>Connect. Share. Inspire. Welcome to our vibrant community!</span>
@@ -169,8 +168,6 @@ if  (status !== 'success')
 
         </div>
     )
-
-}
 }
 
 export default SignUp

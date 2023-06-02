@@ -1,5 +1,7 @@
+import { Alert } from '@mui/material';
 import React, {useContext, useEffect, useState} from 'react'
 import '../../styles/profil.css'
+import { deletePost } from '../../components/Posts/deletePost';
 import ProfilHeader from './ProfilHeader'
 import Post from "../../components/Posts/Post";
 import FriendsElement, {FriendsElementProps} from "../Friends/FriendsElement";
@@ -20,7 +22,8 @@ function Profil() {
     const [user, setUser] = useState<User>();
     const [userState, setUserState] = useState('');
     const [friends, setFriends] = useState<User[]>([]);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const [successMessage, setSuccessMessage] = useState<string>();
     const {userId}=useParams();
     console.log("logged user " , loggedInUser);
     useEffect(() => {
@@ -31,6 +34,9 @@ function Profil() {
         console.log("userFrindShip",userState)
 
     }, [loggedInUser,userId]);
+    const handleDeleteCLick = (id: string) => {deletePost(id ,setPosts,setStatus,setSuccessMessage, setErrorMessage, token);
+
+    }
     if (status === 'loading') {
         return (
             <LoadingSpinner/>
@@ -42,6 +48,24 @@ function Profil() {
             {user && (
                 <ProfilHeader username={user?.username} joined={formatDate(user?.createdAt)} image={user?.image} userState={userState} friends={friends.length } userId={user?.id} />
                 )
+            }
+            { status === 'error' && errorMessage && (
+              <Alert
+                severity="error"
+                color="error"
+              >
+                  {errorMessage}
+              </Alert>
+
+            )}
+            {
+              ( status === 'success' && successMessage ) &&
+              <Alert
+                severity="success"
+              >
+                  {successMessage}
+              </Alert>
+
             }
             <div className={"profile-body"}>
                 <div className={"partOne"}>
@@ -65,6 +89,8 @@ function Profil() {
                                 likes={post.likes}
                                 isLiked={post.isLiked}
                                 imageUrl={post.imageUrl}
+                                canDelete={post.owner?.id === loggedInUser?.id}
+                                onDeleteClick={() => handleDeleteCLick(post.id)}
                             />
                         ))
                     }
