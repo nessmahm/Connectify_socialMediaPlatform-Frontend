@@ -80,7 +80,7 @@
 }
 .friend-btn button:hover {
     transform:scale(1);
-    background-color: #949393;
+    background-color: #dc9ad9;
     color: #78289f;
 }
 .profil .partOne .userImg {
@@ -105,4 +105,12 @@
     align-items: center;
     margin:10px;
 
+}
+.friend-btn .request-sent-btn {
+    background-color: #6b5cf1;
+    color: #f2f3f5;
+}
+.friend-btn .request-sent-btn:hover {
+    background-color: #8b87ad;
+    color: #f2f3f5;
 }
