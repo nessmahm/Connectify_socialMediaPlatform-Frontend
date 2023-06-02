@@ -7,7 +7,7 @@ function FriendRequestButton({state}) {
     const notConnectedState = ['connect', 'send request'];
     const connectedState = ['friend', 'unfollow'];
     const requestSentState = ['request sent', 'cancel request'];
-    const [text, setText] = useState(connectedState);
+    const [text, setText] = useState( state =="connect" ? notConnectedState : state==="friend" ? connectedState : requestSentState);
     useEffect(()=> {},[text]
     )
 
@@ -28,9 +28,10 @@ function FriendRequestButton({state}) {
 
 
     return (
+        <div className={"friend-btn"}>
 
         <Button
-            className="btn"
+            className="btn friend-btn"
             variant="contained"
             color="primary"
             onMouseEnter={()=>setIsHovered(true)}
@@ -39,6 +40,7 @@ function FriendRequestButton({state}) {
         >
             {isHovered? text[1] : text[0] }
         </Button>
+        </div>
     );
 }
 

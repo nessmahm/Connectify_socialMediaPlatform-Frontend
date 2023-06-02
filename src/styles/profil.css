@@ -68,7 +68,7 @@
 
 
 }
-.profil-header .infos button{
+.friend-btn button {
     height: 30px;
     border-radius: 15px;
     background-color: #9366a9;
@@ -78,7 +78,7 @@
     cursor: pointer;
     margin-top: 40px;
 }
-.profil-header .infos button:hover {
+.friend-btn button:hover {
     transform:scale(1);
     background-color: #949393;
     color: #78289f;

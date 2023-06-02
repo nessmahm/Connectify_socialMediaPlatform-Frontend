@@ -5,12 +5,13 @@ import SignUp from './pages/Sign/SignUp.tsx'
 import SignIn from './pages/Sign/SignIn.tsx'
 import reportWebVitals from './reportWebVitals';
 import './styles/style.css'
+import './styles/friends.css'
 import './styles/elements.css'
 import {BrowserRouter as Router , Route , Routes } from 'react-router-dom'
 import FullHeader from './components/header/FullHeader'
 import Profil from "./pages/Profil/Profil.tsx";
 import NotAdminProfil from "./pages/Profil/NotAdminProfil";
-import Home from "./pages/Home/Home";
+import Users from "./pages/OtherUsers/Users";
 import Settings from "./pages/Settings/Settings";
 import Friends   from "./pages/Friends/Friends";
 
@@ -31,7 +32,7 @@ export const App = () => (
                     <Route path="/signin" element = {<SignIn/>} />
                     <Route path="/profil/:userId" element = {<AuthNeeded element={<Profil/>}/>} />
                     <Route path="/profil1" element = {<AuthNeeded element = {<NotAdminProfil/>}/>} />
-                    <Route path="/" element = {<AuthNeeded element={<Home/>}/>} />
+                    <Route path="/" element = {<AuthNeeded element={<Users/>}/>} />
                     <Route path="/settings" element = {<AuthNeeded element={<Settings/>}/>} />
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />
                     <Route path="/search" element = {<AuthNeeded element={<SideBar/>} />} />

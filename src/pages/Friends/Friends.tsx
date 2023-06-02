@@ -48,7 +48,7 @@ function Friends() {
 
 
         </div>
-            <div className={"friends-section"}>
+            <div className={"users-section"}>
                 <h3>Friends List </h3>
 
                 {friends.length>0 ?
