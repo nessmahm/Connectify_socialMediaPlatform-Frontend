@@ -4,10 +4,11 @@ import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../Sign/SignUp';
 
 export const requestUsers = async (
-  setUsers: React.Dispatch<React.SetStateAction<User[]>>,
+    userId: string ,
+    setUsers: React.Dispatch<React.SetStateAction<User[]>>,
   setStatus: (status: ViewStatusType) => void,
   setErrorMessage: (value: string | undefined) => void,
-  token: string | undefined
+    token: string,
 ) => {
   try {
     setStatus('loading');
@@ -16,14 +17,16 @@ export const requestUsers = async (
       throw Error('invalid service');
     }
     const bearerToken = 'Bearer ' + token;
-    const request = service.buildRequest({ Authorization: bearerToken},)
+
+    const request = service.buildRequest({userId},{ Authorization: bearerToken})
     if (!request) {
       setErrorMessage('Invalid request');
       return;
     }
     const response = await submit(request)
     console.log("res",response)
-    if (response.message) {
+    if (response.message || !response || response.data.status === 400) {
+      setStatus("error")
       setErrorMessage(response.message)
       return;
     }
