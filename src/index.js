@@ -32,7 +32,7 @@ export const App = () => (
                     <Route path="/signin" element = {<SignIn/>} />
                     <Route path="/profil/:userId" element = {<AuthNeeded element={<Profil/>}/>} />
                     <Route path="/profil1" element = {<AuthNeeded element = {<NotAdminProfil/>}/>} />
-                    <Route path="/" element = {<AuthNeeded element={<Users/>}/>} />
+                    <Route path="/users" element = {<AuthNeeded element={<Users/>}/>} />
                     <Route path="/settings" element = {<AuthNeeded element={<Settings/>}/>} />
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />
                     <Route path="/search" element = {<AuthNeeded element={<SideBar/>} />} />

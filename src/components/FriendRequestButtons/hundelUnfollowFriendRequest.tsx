@@ -2,7 +2,7 @@ import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 
-export const RequestUnfollowFriendRequest = async (
+export const HundelUnfollowFriendRequest = async (
     senderId: string,
     recieverId: string,
     setStatus: (status: ViewStatusType) => void,

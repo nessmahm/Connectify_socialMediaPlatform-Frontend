@@ -15,9 +15,10 @@ function Users() {
   const [status, setStatus] = useState<ViewStatusType>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const { token, user: loggedInUser } = useContext(AuthContext);
-  useEffect(() => {
-  requestUsers(setUsers, setStatus, setErrorMessage, token);
-  },[]);
+
+   useEffect(() => {
+      requestUsers(loggedInUser?.id,setUsers, setStatus, setErrorMessage ,token);
+  },[loggedInUser]);
   if (status === 'loading')  {
     return <LoadingSpinner/>
   }

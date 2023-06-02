@@ -5,6 +5,8 @@ import { ViewStatusType } from '../../pages/Sign/SignUp';
 export const requestDeleteFriendRequest = async (
     senderId: string,
     recieverId: string,
+    setText:(Text: string[]) => void,
+    btnText : string[],
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
@@ -14,7 +16,11 @@ export const requestDeleteFriendRequest = async (
             return;
         }
         setStatus('loading')
-        const service = getService('reject-a-friend-request');
+        const service = getService('delete-a-friend-request');
+        if (!service) {
+            setErrorMessage('Invalid service');
+
+        }
         const bearerToken = 'Bearer ' + token;
         const request = service.buildRequest({
             recieverId,senderId
@@ -31,6 +37,8 @@ export const requestDeleteFriendRequest = async (
             return;
         }
         setStatus('success');
+        setText(btnText);
+
     } catch (e) {
         console.log(e)
     }

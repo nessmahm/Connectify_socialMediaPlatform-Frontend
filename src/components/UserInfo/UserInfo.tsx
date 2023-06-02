@@ -32,7 +32,7 @@ export const UserInfo = (props: UserInfoProps) => {
         onClick={onSendRequestCLick}
         disabled={disableSendRequest}
       ><strong>{sendRequestLabel}</strong></Button>*/}
-      <FriendRequestButton state={"connect" }/>
+      <FriendRequestButton state={"connect" } userid={user?.id}/>
     </div>
   )
 }
