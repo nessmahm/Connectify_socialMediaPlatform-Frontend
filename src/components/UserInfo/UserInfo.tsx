@@ -4,8 +4,11 @@ import { useContext } from 'react';
 import React from 'react';
 import { AuthContext } from '../../context/context';
 import { User } from '../../context/context';
-import UserImage from '../UserImage';
 import { handleSendFriendRequestClick } from './handleSendFriendRequestClick';
+import FriendCard from "../../pages/Friends/FriendCard";
+import '../../styles/friends.css'
+import '../../styles/elements.css'
+import FriendRequestButton from "../FriendRequestButtons/FriendBtn";
 
 export type UserInfoProps = {
   user: User;
@@ -21,16 +24,15 @@ export const UserInfo = (props: UserInfoProps) => {
     setSendRequestLabel('Sent')
   }
   return (
-    <div className="user-info-container">
-      <UserImage img={user?.image} />
-      <div className="user-info">
-        <span className="user-name">{user?.username}</span>
-    </div>
-      <Button
+    <div className="users-section all-users">
+
+      {user && <FriendCard user={user} />}
+      {/*<Button
         className="btn"
         onClick={onSendRequestCLick}
         disabled={disableSendRequest}
-      ><strong>{sendRequestLabel}</strong></Button>
+      ><strong>{sendRequestLabel}</strong></Button>*/}
+      <FriendRequestButton state={"connect" }/>
     </div>
   )
 }

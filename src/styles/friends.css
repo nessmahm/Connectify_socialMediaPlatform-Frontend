@@ -5,7 +5,7 @@
     flex-direction: column;
     background-color: transparent;
 }
-.friends-page .friendCard {
+.friendCard {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@
     line-height: 1;
 
 }
-.friends-page .friends-section {
+.users-section {
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
@@ -28,16 +28,16 @@
     align-items: center;
 }
 
-.friends-page .friendCard .userName {
+.friendCard .userName {
     font-weight: bold;
     color: black;
 }
-.friends-page .friendCard .userImg{
+.friendCard .userImg{
     width: 80px;
 
 
 }
-.friends-page .friendCard span {
+.friendCard span {
     margin:10px;
 }
 .friends-page .friendReq-section {
@@ -54,7 +54,7 @@
     display:flex;
     width: 100%;
 }
-.friends-page h3 {
+.wrapper h3 {
 width: 100%;
 
 
@@ -107,4 +107,25 @@ width: 100%;
 .friends-wrapper .userImg {
     width: 60px;
     margin: 5px;
+}
+.all-users {
+    flex-direction: column;
+    margin-top:5px!important;
+
+}
+.all-users .users-section {
+}
+.all-users button {
+width: 100%;
+    margin-top:-30px!important;
+
+}
+.all-users .friendCard{
+    margin-bottom: 0px;
+}
+.users-page {
+    flex-direction: row!important;
+    width: 80%;
+    flex-wrap: wrap;
+    margin:20px auto!important;
 }
