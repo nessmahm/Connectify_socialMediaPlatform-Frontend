@@ -31,7 +31,7 @@ function FriendRequestButton({state}) {
         <div className={"friend-btn"}>
 
         <Button
-            className="btn friend-btn"
+            className= {text[0] ==="request sent" ? "btn friend-btn request-sent-btn" : "btn friend-btn" }
             variant="contained"
             color="primary"
             onMouseEnter={()=>setIsHovered(true)}
