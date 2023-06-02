@@ -96,9 +96,13 @@ function Header() {
                 </div>
 
                 <div className={"user"}>
-                    <span>{user && user?.username}</span>
-                    <img src={user?.image}  alt={"user"} onClick={()=>setUserDropdown(!userDropdown)}/>
-                    {userDropdown && <UserDropDown/>}
+                    {user && (
+                        <>
+                            <span>{user && user?.username}</span>
+                        <img src={user?.image}  alt={"user"} onClick={()=>setUserDropdown(!userDropdown)}/>
+                        {userDropdown && <UserDropDown/>}
+                        </>
+                        )}
 
                 </div>
 

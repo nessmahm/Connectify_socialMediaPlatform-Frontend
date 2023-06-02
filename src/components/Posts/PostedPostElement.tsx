@@ -66,15 +66,18 @@ function PostedPostElement(props: PostedPostProps) {
   const [postComments, setPostComments] = useState<CommentType[]>(comments);
   const { token, user } = useContext(AuthContext);
 const [disableComment,setDisableComment]=useState(true)
-    const handleAddCommentClick = () => addComment(
-    comment,
-    id,
-    setPostComments,
-    setNumberOfComments,
-    setStatus,
-    setErrorMessage,
-    token,
-  );
+    const handleAddCommentClick = () => {
+      addComment(
+        comment,
+        id,
+        setPostComments,
+        setNumberOfComments,
+        setStatus,
+        setErrorMessage,
+        token,
+      );
+      setComment(undefined)
+    }
   const likeButtonLabel = isLiked ? 'Dislike' : 'Like';
   const imageLocalUrl = `../../images/${imageUrl}`;
   const handleLikeClick = () => isLiked ? dislikePost(
@@ -89,12 +92,7 @@ const [disableComment,setDisableComment]=useState(true)
     setErrorMessage, token);
   const handelComment= (e)=>{
       setComment(e.target.value)
-      if(comment!='') {
-          setDisableComment(true)
-      }
-    else {
-        setDisableComment(false)
-    }}
+    }
     return (
         <div className={"posted-post"}>
           {status === 'error' && errorMessage && (
@@ -170,8 +168,8 @@ const [disableComment,setDisableComment]=useState(true)
                   ))}
                 </div>
           <div className={"comment-maker"}>
-              <input placeholder={"add comment"} className="input-comment" onChange={ handelComment} />
-              <button  disabled={disableComment} className="post-btn btn  " onClick={handleAddCommentClick}>Post</button>
+              <input value={comment} placeholder={"add comment"} className="input-comment" onChange={handelComment}  />
+              <button   className="post-btn btn  " onClick={handleAddCommentClick} disabled={!comment}>Post</button>
           </div>
 
         </div>

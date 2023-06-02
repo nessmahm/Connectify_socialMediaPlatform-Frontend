@@ -17,8 +17,9 @@ function FriendRequest(props:any) {
 
 
     const handleAccept = async() => {
-        AcceptFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
-
+        await AcceptFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
+      // eslint-disable-next-line no-restricted-globals
+        location.reload()
     }
     const handleReject = async() => {
         RejectFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
