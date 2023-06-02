@@ -27,7 +27,7 @@ export const requestUser = async (
         }
         const response = await submit(request)
         console.log("res",response)
-        if (response.message || !response || response.data?.status === 400) {
+        if (!response ||response.message ||  response.data?.status === 400) {
             setStatus("error")
             setErrorMessage(response.message)
             return;
