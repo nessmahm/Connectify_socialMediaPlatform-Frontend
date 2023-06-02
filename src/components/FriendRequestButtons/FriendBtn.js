@@ -1,24 +1,40 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
+import {AuthContext} from "../../context/context";
+import {hundelSendFriendRequest} from "./hundelSendFriendRequest";
+import {requestDeleteFriendRequest} from "./hundelDeleteFriendRequest";
 
-function FriendRequestButton({state}) {
+function FriendRequestButton(props) {
+    const {state,userid} = props;
+    const { token, user: loggedInUser } = useContext(AuthContext);
+    const [status, setStatus] = useState('normal');
     const [isClicked, setIsClicked] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
     const notConnectedState = ['connect', 'send request'];
     const connectedState = ['friend', 'unfollow'];
     const requestSentState = ['request sent', 'cancel request'];
     const [text, setText] = useState( state =="connect" ? notConnectedState : state==="friend" ? connectedState : requestSentState);
-    useEffect(()=> {},[text]
+    const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(()=> {
+        console.log("token",token)
+        },[text,token,status]
     )
 
     const handleClick = () => {
 
         switch (text[1]) {
             case "send request":
-            {  setText(requestSentState);
-                break; }
+            {
+                setStatus('normal')
+                hundelSendFriendRequest(loggedInUser?.id, userid,setText,requestSentState,setStatus,setErrorMessage,token);
+
+                break;
+            }
             case "cancel request":
-            { setText(notConnectedState);
+            {  setStatus('normal')
+                requestDeleteFriendRequest(loggedInUser?.id, userid,setText,notConnectedState,setStatus,setErrorMessage,token);
+
                 break; }
             case "unfollow":
             { setText(notConnectedState);

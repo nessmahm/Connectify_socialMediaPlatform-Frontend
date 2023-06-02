@@ -28,6 +28,7 @@ function Profil() {
         requestAllFriends(userId, setFriends, setStatus, setErrorMessage, token);
         requestUser(userId,loggedInUser?.id, setUser,setUserState, setStatus, setErrorMessage);
         console.log("user",user)
+        console.log("userFrindShip",userState)
 
     }, [loggedInUser,userId]);
     if (status === 'loading') {
@@ -39,7 +40,7 @@ function Profil() {
         <div className={"profil"}>
 
             {user && (
-                <ProfilHeader username={user?.username} joined={formatDate(user?.createdAt)} image={user?.image} userState={loggedInUser ? true : false } friends={friends.length } />
+                <ProfilHeader username={user?.username} joined={formatDate(user?.createdAt)} image={user?.image} userState={userState} friends={friends.length } userId={user?.id} />
                 )
             }
             <div className={"profile-body"}>

@@ -12,7 +12,7 @@ export const definitions: ServiceDefinition[] = [
     },{
         id: 'send-friend-request',
         method: 'POST',
-        endpoint: '/friend-request',
+        endpoint: '/friend-request/send',
         description: 'send a friend request',
         buildRequest: (data:any,headers) => ({
             serviceId: 'send-friend-request',
@@ -52,12 +52,12 @@ export const definitions: ServiceDefinition[] = [
 
         }),
     },{
-        id: 'reject-a-friend-request',
+        id: 'delete-a-friend-request',
         method: 'DELETE',
         endpoint: '/friend-request/:id',
         description: 'reject a friend request',
         buildRequest: (data:any,headers) => ({
-            serviceId: 'reject-a-friend-request',
+            serviceId: 'delete-a-friend-request',
             UrlParams: { ...data },
             headers
 

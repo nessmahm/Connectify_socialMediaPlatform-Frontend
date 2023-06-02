@@ -5,7 +5,7 @@ import FriendRequestButton from "../../components/FriendRequestButtons/FriendBtn
 
 
 function ProfilHeader(props:any){
-  const  {username,joined,friends,image,userState}=props;
+  const  {username,userId,joined,friends,image,userState}=props;
     return (
         <div className={"profil-header"}>
             <div className={"user-img"}>
@@ -20,9 +20,11 @@ function ProfilHeader(props:any){
                     <span> Joined {joined} </span>
                     <span> <strong>{friends}</strong>  friends</span>
                 </div>
-              <FriendRequestButton state={userState} />
 
-                { !userState && <FriendRequestButton state={"connect"} />        }
+
+                 <FriendRequestButton state={userState} userId={userId} />
+
+                { !userState && <FriendRequestButton state={"connect"}  userId={userId}/>        }
 
             </div>
 

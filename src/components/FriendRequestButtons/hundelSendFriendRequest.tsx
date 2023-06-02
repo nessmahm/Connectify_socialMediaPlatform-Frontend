@@ -4,9 +4,11 @@ import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 
-export const requestSendFriendRequest = async (
+export const hundelSendFriendRequest = async (
     senderId: string,
     recieverId: string,
+    setText:(Text: string[]) => void,
+    btnText : string[],
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
@@ -33,6 +35,8 @@ export const requestSendFriendRequest = async (
             return;
         }
         setStatus('success');
+        setText(btnText);
+
     } catch (e) {
         console.log(e)
     }
