@@ -6,6 +6,7 @@ import {AuthContext} from "../../context/context";
 import {Link} from "react-router-dom";
 import Alert from "@mui/joy/Alert";
 import { formatDistanceToNow } from 'date-fns';
+import {RejectFriendRequest} from "./RejectFriendRequest";
 
 function FriendRequest(props:any) {
     const {user,requestId,requestDate,setRequests,setRequestState} = props;
@@ -19,21 +20,26 @@ function FriendRequest(props:any) {
         AcceptFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
 
     }
+    const handleReject = async() => {
+        RejectFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
+
+    }
 
     return (
+        user &&
         <div className={"friend-request"}>
 
 
-                    <UserImage img={user.image} />
-                    <Link  className={"notification"} to={"/profil/"+user.id} key={user.id}>
-                        <span> <strong>{user.username} </strong></span>
+                    <UserImage img={user?.image} />
+                    <Link  className={"notification"} to={"/profil/"+user?.id} key={user?.id}>
+                        <span> <strong>{user?.username} </strong></span>
                         <span >{ formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
 
                     </Link>
 
 
                     <button  className={"btn accept-btn"} onClick={handleAccept} ><strong>Accept</strong></button>
-                    <button  className={"btn reject-btn"} >Reject</button>
+                    <button  className={"btn reject-btn"} onClick={handleReject} >Reject</button>
 
         </div>
     )

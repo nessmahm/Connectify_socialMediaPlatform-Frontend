@@ -27,7 +27,7 @@ export const handleSignInClick = async (
       setErrorMessage(response.message)
       return;
     }
-    setToken(response.data.access_token, response.data.user as User)
+    setToken(response.data?.access_token, response.data?.user as User)
     setStatus('success');
   } catch (e) {
     console.log(e)
