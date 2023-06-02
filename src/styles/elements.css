@@ -406,6 +406,8 @@ background-color: white;
 }
 .posted-post .content span {
     margin: 10px 5px;
+    font-size: 18px;
+    font-family: 'Baloo 2', cursive;
 }
 .posted-post .content img {
     width: 100%;
@@ -609,10 +611,11 @@ color: #989797;
 }
 
 .input-comment {
-    border-color: #78289f;
-    border-radius: 15px;
-    boder : gray 2px;
     padding:5px;
+    width: 80%;
+    padding-left:20px;
+    border:none!important;
+    background-color: #efebeb;
 
 }
 .btn {
@@ -628,17 +631,23 @@ color: #989797;
 }
 .post-btn {
     background-color: #9c27b0;
-    border-radius: 15px;
     border: none;
     color: white;
     font-size: 15px;
+    border-radius: 0!important;
     cursor: pointer;
     transition: scale 5s ease-in-out;
+    width: 20%;
 }
 .comment-maker {
     display: flex;
-    height:30px;
+    height:40px;
+    width: 100%;
+    justify-content: space-between;
+    border-color: #78289f;
+
 }
+
 .post-btn:disabled{
     background-color:#9366a9;
     color:white;

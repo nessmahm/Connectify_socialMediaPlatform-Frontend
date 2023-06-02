@@ -84,7 +84,6 @@
     color: #78289f;
 }
 .profil .partOne .userImg {
-  margin:20px;
 }
 .profil .partOne .friends-wrapper {
     display: flex;
@@ -104,5 +103,6 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    margin:10px;
 
 }
