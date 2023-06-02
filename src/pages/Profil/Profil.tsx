@@ -29,7 +29,7 @@ function Profil() {
         requestUser(userId, setUser,setUserState, setStatus, setErrorMessage, token);
         console.log("user",user)
 
-    }, [loggedInUser]);
+    }, [loggedInUser,userId]);
     if (status === 'loading') {
         return (
             <LoadingSpinner/>

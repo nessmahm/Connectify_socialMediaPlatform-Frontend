@@ -31,7 +31,7 @@ function Comment(props: CommentType) {
                   {writer && writer.username && (<span className={"postOwner"}>{writer.username}</span>)}
                   {createdAt && <span className={"postDate"}>{formatDate(createdAt)}</span>}
                 </div>
-                <span className={"commentText"}>{content} </span>
+                <span className={"content"}>{content} </span>
             </div>
           {true && (
             <div className="delete-button-container">
