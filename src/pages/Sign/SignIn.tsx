@@ -26,6 +26,7 @@ function SignIn() {
                 navigate('/', {replace: true})
             }, 1500);
         }},[status]);
+
     if (status === 'loading') {
       return (
         <LoadingSpinner/>

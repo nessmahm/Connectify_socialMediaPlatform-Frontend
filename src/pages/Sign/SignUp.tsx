@@ -1,4 +1,4 @@
-import  React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {BiRightArrowAlt} from  "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
@@ -22,6 +22,8 @@ function SignUp() {
     const shouldDisableSubmit = !userName || !email || !password || !phoneNumber || !repeatedPassword || password !== repeatedPassword
     const [status,setStatus] = useState('normal')
     const navigate = useNavigate();
+
+
     console.log("token", token)
     const handleSubmit = () => {
         handleSignUpClick(
@@ -36,13 +38,26 @@ function SignUp() {
         )
     }
 
+    useEffect(()=> {
+        if (status === 'success' && successMessage ) {
+
+
+            const timeout = setTimeout(() => {
+
+                navigate('/signin', { replace: true });
+
+            }, );
+
+        }
+    }, [status]);
+
     if (status === 'loading') {
         return (
           <LoadingSpinner/>
         )
     }
-
-    return (
+if  (status !== 'success')
+{return (
         <div className='sign-container'>
             <div className='signImage'>
             <span>Connect. Share. Inspire. Welcome to our vibrant community!</span>
@@ -59,13 +74,13 @@ function SignUp() {
 
                 )}
                 {
-                    status === 'success' && successMessage && (
+                   ( status === 'success' && successMessage ) &&
                         <Alert
                             severity="success"
                         >
                             {successMessage}
                         </Alert>
-                    )
+
                 }
                 <div className='form-label'><h2>Sign Up : </h2></div>
 
@@ -154,6 +169,8 @@ function SignUp() {
 
         </div>
     )
+
+}
 }
 
 export default SignUp
