@@ -9,7 +9,7 @@ import FriendCard from "../../pages/Friends/FriendCard";
 import '../../styles/friends.css'
 import '../../styles/elements.css'
 import FriendRequestButton from "../FriendRequestButtons/FriendBtn";
-
+import {Link } from 'react-router-dom';
 export type UserInfoProps = {
   user: User;
 }
@@ -26,7 +26,9 @@ export const UserInfo = (props: UserInfoProps) => {
   return (
     <div className="users-section all-users">
 
-      {user && <FriendCard user={user} />}
+      {user && <Link to={"profil/"+user.id}>
+        <FriendCard user={user} />
+      </Link> }
       {/*<Button
         className="btn"
         onClick={onSendRequestCLick}

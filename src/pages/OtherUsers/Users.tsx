@@ -32,10 +32,8 @@ function Users() {
     return (
         <div className={"friends-page users-page wrapper"}>
           {users && users.map((user) => (
-              <Link to={"/profil/"+user.id}>
                   <UserInfo user={user} key={user.id} />
 
-              </Link>
           ))}
             <Pagination count={totalPage} page={page} onChange={handlePaginationChange} />
 
