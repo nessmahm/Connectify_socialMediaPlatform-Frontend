@@ -76,7 +76,6 @@ function Friends() {
             </div>
             </>
             }
-            <Pagination count={10} page={page} onChange={handlePaginationChange} />
 
         </div>
     )

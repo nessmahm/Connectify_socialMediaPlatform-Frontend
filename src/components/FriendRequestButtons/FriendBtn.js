@@ -13,11 +13,12 @@ function FriendRequestButton(props) {
     const notConnectedState = ['connect', 'send request'];
     const connectedState = ['friend', 'unfollow'];
     const requestSentState = ['request sent', 'cancel request'];
+    const requestrecievedState = ['request recieved', 'response'];
     const [text, setText] = useState();
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(()=> {
-        setText(state =="notFriend" ? notConnectedState : state==="friend" ? connectedState : requestSentState)
+        setText(state =="notFriend" ? notConnectedState : state==="friend" ? connectedState : state==="recievedRequest" ? requestrecievedState : requestSentState)
         },[userId]
     )
 
@@ -39,6 +40,10 @@ function FriendRequestButton(props) {
             case "unfollow":
             { setText(notConnectedState);
                 break; }
+                case "response":{
+                    window.location.href = '/sent-requests';
+                }
+
     }}
 
 
