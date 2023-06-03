@@ -47,9 +47,8 @@ function FriendRequestElement() {
               ) :
 
               (
-                <span> No friend requests </span>
-              )
-            }
+                  <p className={"noFriends-message"}> You Don't Have Any friend requests Yet .  </p>
+              )}
 
         </div>
     )

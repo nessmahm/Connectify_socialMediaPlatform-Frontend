@@ -97,7 +97,7 @@ const [disableComment,setDisableComment]=useState(true)
 
     }
   const likeButtonLabel = isLiked ? 'Dislike' : 'Like';
-  const imageLocalUrl = `../../images/${imageUrl}`;
+  const imageLocalUrl = imageUrl ? `../../images/${imageUrl}`:null;
   const handleLikeClick = () => isLiked ? dislikePost(
     id,
     setIsLiked,
@@ -146,8 +146,8 @@ const [disableComment,setDisableComment]=useState(true)
 
             <div className={"content"}>
                 <span> {content} </span>
-
-                <img src={imageLocalUrl} alt={"post-img"} />
+                {imageLocalUrl &&
+                <img src={imageLocalUrl} alt={"post-img"} />}
             </div>
             <div className={"action"}>
                 <div className={"react"}>

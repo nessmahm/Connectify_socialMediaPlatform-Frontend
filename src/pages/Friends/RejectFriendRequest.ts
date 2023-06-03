@@ -5,7 +5,7 @@ import { ViewStatusType } from '../Sign/SignUp';
 import {RequestProps} from "../../Props/RequestProps";
 
 export const RejectFriendRequest = async (
-    requestId: string,
+    recieverId: string,
     setRequests: React.Dispatch<React.SetStateAction<RequestProps[]>>,
     setStatus: (status: ViewStatusType) => void,
     setErrorMessage: (message: string | undefined) => void,
@@ -13,9 +13,9 @@ export const RejectFriendRequest = async (
 ) => {
     try {
         setStatus('loading')
-        const service = getService('reject-a-friend-request');
+        const service = getService('delete-a-friend-request');
         const bearerToken = 'Bearer ' + token;
-        const request = service.buildRequest({requestId},
+        const request = service.buildRequest({recieverId},
             { Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');
@@ -28,7 +28,7 @@ export const RejectFriendRequest = async (
             setErrorMessage(response.message)
             return;
         }
-        setRequests((requests: RequestProps[]) => requests.filter((request) => request.requestId !== requestId));
+        setRequests((requests: RequestProps[]) => requests.filter((request) => request.reciever?.id !== recieverId));
         setStatus('success');
     } catch (e) {
         console.log(e)
