@@ -27,11 +27,13 @@ function Profil() {
     const {userId}=useParams();
     console.log("logged user " , loggedInUser);
     useEffect(() => {
-        requestAllPosts(userId, setPosts, setStatus, setErrorMessage, token);
-        requestAllFriends(userId, setFriends, setStatus, setErrorMessage, token);
-        requestUser(userId,loggedInUser?.id, setUser,setUserState, setStatus, setErrorMessage);
-        console.log("user",user)
-        console.log("userFrindShip",userState)
+        if (userId) {
+            requestAllPosts(userId, setPosts, setStatus, setErrorMessage, token);
+            requestAllFriends(userId, setFriends, setStatus, setErrorMessage, token);
+            requestUser(userId, loggedInUser?.id, setUser, setUserState, setStatus, setErrorMessage);
+            console.log("user", user)
+            console.log("userFrindShip", userState)
+        }
 
     }, [loggedInUser,userId]);
     const handleDeleteCLick = (id: string) => {deletePost(id ,setPosts,setStatus,setSuccessMessage, setErrorMessage, token);

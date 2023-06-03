@@ -54,11 +54,11 @@ export const definitions: ServiceDefinition[] = [
     },{
         id: 'delete-a-friend-request',
         method: 'DELETE',
-        endpoint: '/friend-request/:id',
+        endpoint: '/friend-request/:recieverId',
         description: 'reject a friend request',
         buildRequest: (data:any,headers) => ({
             serviceId: 'delete-a-friend-request',
-            UrlParams: { ...data },
+            urlParams: { ...data },
             headers
 
         }),
