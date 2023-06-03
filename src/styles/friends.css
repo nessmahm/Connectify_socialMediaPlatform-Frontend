@@ -150,6 +150,9 @@ width: 100%;
     width: 70%;
 margin: 30px auto;
     padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .noFriends-message{
     padding-top: 45px;
