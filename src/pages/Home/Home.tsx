@@ -32,6 +32,7 @@ function Home() {
     )
   }
   return (
+    <div className="home-page-container">
     <div className={"home-page"}>
       { status === 'error' && errorMessage && (
         <Alert
@@ -42,13 +43,8 @@ function Home() {
         </Alert>
 
       )}
-      <div className={"partOne"}>
-
-      </div>
-      <div className={"partTwo"}>
 
         <div className={"posts"}>
-          <Post/>
           {posts && numberOfPosts === 0 && (
             <div className={"no-posts"}>
               <h4>No posts from friends yet</h4>
@@ -71,13 +67,13 @@ function Home() {
             />
           ))))}
         </div>
+      <div className="button-container">
         <button
           className="button"
           onClick={() => { navigate('/users') }}
         >Connect With People</button>
       </div>
-
-
+      </div>
     </div>
   )
 }

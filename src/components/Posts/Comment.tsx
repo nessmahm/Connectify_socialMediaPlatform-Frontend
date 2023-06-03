@@ -33,7 +33,7 @@ function Comment(props: CommentType) {
                 </div>
                 <span className={"content"}>{content} </span>
             </div>
-          {true && (
+          {canEdit && (
             <div className="delete-button-container">
               <DeleteOutlined
                 className="delete-button"
