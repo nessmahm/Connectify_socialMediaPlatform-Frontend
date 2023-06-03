@@ -43,7 +43,10 @@ function Friends() {
                 <>
 
             <div className={"friendReq-section"} >
-            <h3>Friend Request List </h3>
+          <div className={"same-row"}>
+              <h3>Friend Request List </h3>
+             <Link to='/sentRequests'> <span> Sent Requests </span> </Link>
+          </div>
                 <FriendRequestElement />
 
 

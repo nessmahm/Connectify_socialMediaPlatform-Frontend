@@ -41,7 +41,7 @@
     margin:10px;
 }
 .friends-page .friendReq-section {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +116,7 @@ width: 100%;
 .all-users .users-section {
 }
 .all-users button {
-width: 100%;
+    width: 100%;
     margin-top:-30px!important;
 
 }
@@ -128,4 +128,26 @@ width: 100%;
     width: 80%;
     flex-wrap: wrap;
     margin:20px auto!important;
+}
+.same-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: row;
+    width : 100%;
+}
+.same-row a{
+    width: 150px!important;
+    font-size: 18px;
+    color: #78289f;
+    text-decoration: underline;
+
+
+
+}
+.friend-request-page{
+    width: 70%;
+margin: 30px auto;
+    padding-left: 10px;
 }

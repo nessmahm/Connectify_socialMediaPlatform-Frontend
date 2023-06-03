@@ -4,4 +4,5 @@ export type RequestProps = {
     requestId: string;
     requestDate: Date;
     sender: User
+    reciever:User
 }
