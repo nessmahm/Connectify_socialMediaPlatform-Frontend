@@ -4,7 +4,7 @@ import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 
-export const hundelSendFriendRequest = async (
+export const handleSendFriendRequest = async (
     senderId: string,
     recieverId: string,
     setText:(Text: string[]) => void,
