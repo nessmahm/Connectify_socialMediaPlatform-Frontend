@@ -26,13 +26,13 @@ export const requestUsers = async (
     }
     const response = await submit(request)
     console.log("res",response)
-    if (!response || response.message  || response.data.status === 400) {
+    if (!response || response.message  || response.data?.status === 400) {
       setStatus("error")
       setErrorMessage(response?.message)
       return;
     }
-    setUsers(response.data.users as User[])
-    setTotalPages(response.data.totalPages as number)
+    setUsers(response.data?.users as User[])
+    setTotalPages(response.data?.totalPages as number)
 
     setStatus('success');
   } catch (e) {

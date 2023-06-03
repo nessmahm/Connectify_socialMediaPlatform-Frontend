@@ -22,7 +22,7 @@ export const findUserByName = async (
     if (!response ||response.message ||  response.data?.status === 400) {
       return -1;
     }
-    return response.data.id || -1;
+    return response.data?.id || -1;
   } catch (e) {
     console.log(e)
   }
