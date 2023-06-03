@@ -57,7 +57,7 @@ export const definitions: ServiceDefinition[] = [
     endpoint: '/user/non-friends-users',
     buildRequest: (data:any,headers) => ({
       serviceId: 'get-all-users',
-      urlParams: { ...data },
+      queryParams: { ...data },
       headers
     }),
   },
