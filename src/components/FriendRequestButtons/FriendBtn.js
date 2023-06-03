@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import {AuthContext} from "../../context/context";
-import {hundelSendFriendRequest} from "./hundelSendFriendRequest";
-import {requestDeleteFriendRequest} from "./hundelDeleteFriendRequest";
+import {handleSendFriendRequest} from "./handleSendFriendRequest";
+import {requestDeleteFriendRequest} from "./handleDeleteFriendRequest";
 
 function FriendRequestButton(props) {
     const {state,userId } = props;
@@ -26,7 +26,7 @@ function FriendRequestButton(props) {
             case "send request":
             {
                 setStatus('normal')
-                hundelSendFriendRequest(loggedInUser?.id, userId,setText,requestSentState,setStatus,setErrorMessage,token);
+                handleSendFriendRequest(loggedInUser?.id, userId,setText,requestSentState,setStatus,setErrorMessage,token);
 
                 break;
             }
