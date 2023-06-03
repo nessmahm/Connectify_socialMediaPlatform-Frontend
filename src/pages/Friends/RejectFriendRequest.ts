@@ -6,8 +6,10 @@ import {RequestProps} from "../../Props/RequestProps";
 
 export const RejectFriendRequest = async (
     recieverId: string,
+    requestId: string,
     setRequests: React.Dispatch<React.SetStateAction<RequestProps[]>>,
     setStatus: (status: ViewStatusType) => void,
+    setSuccessMessage: (message: string | undefined) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
 ) => {
@@ -28,8 +30,10 @@ export const RejectFriendRequest = async (
             setErrorMessage(response.message)
             return;
         }
-        setRequests((requests: RequestProps[]) => requests.filter((request) => request.reciever?.id !== recieverId));
+        setRequests((requests: RequestProps[]) => requests.filter((request) => request.requestId !== requestId));
+
         setStatus('success');
+        setSuccessMessage('Friend request rejected Successfully');
     } catch (e) {
         console.log(e)
     }

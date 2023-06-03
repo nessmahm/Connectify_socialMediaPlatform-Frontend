@@ -17,7 +17,7 @@ header div {
 }
 header .logo {
    font-weight: normal;
-    color: #8ED8D2;
+    color: #cd8fda;
     font-size: 25px;
 }
 
@@ -35,10 +35,11 @@ header .middle .icon-wrapper {
     display: flex;
     width: 30px;
     height: 30px;
-    padding:5px;
     top:0;
     z-index: 100;
-    max-width: 30%;
+    width: 50px;
+    align-items: center;
+    justify-content: center;
 
 
 }

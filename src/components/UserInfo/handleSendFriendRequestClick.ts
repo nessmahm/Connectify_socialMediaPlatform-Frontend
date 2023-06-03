@@ -13,7 +13,7 @@ export const handleSendFriendRequestClick = async (
     }
     const bearerToken = 'Bearer ' + token;
     const request = service.buildRequest({
-      reciever_id: friendId
+      reciever_id: friendId,
     }, { Authorization: bearerToken})
     if (!request) {
       return;

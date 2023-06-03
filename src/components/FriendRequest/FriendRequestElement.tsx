@@ -14,6 +14,7 @@ function FriendRequestElement() {
     const [status, setStatus] = useState('normal');
     const [RequestState, setRequestState] = useState<ViewStatusType>();
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState();
 
     useEffect(() => {
         requestAllFriendRequests( setFriendRequests, setStatus, setErrorMessage, token);
@@ -33,7 +34,7 @@ function FriendRequestElement() {
                     size="md"
                     variant="soft"
                     className={"signIn-error"}
-                >Friend Added Succefully </Alert>
+                > {successMessage} </Alert>
             }
 
             {friendRequests && friendRequests?.length > 0 ?
@@ -41,7 +42,9 @@ function FriendRequestElement() {
                 friendRequests.map((request) => (
                   <FriendRequest user={request.sender} requestId={request.requestId} setRequests={setFriendRequests}
                                  setRequestState={setRequestState} requestDate={request.requestDate}
-                                 key={request.requestId} sent={false}/>
+                                 key={request.requestId} sent={false}
+                                 setSuccessMessage={setSuccessMessage}
+                  />
 
                 ))
               ) :
