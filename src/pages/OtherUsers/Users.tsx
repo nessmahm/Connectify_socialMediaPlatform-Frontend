@@ -11,15 +11,21 @@ import FriendsElement from "../Friends/FriendsElement";
 import { ViewStatusType } from '../Sign/SignUp';
 import { requestUsers } from './requestUsers';
 import { Link } from 'react-router-dom';
+import Pagination from "@mui/material/Pagination";
 function Users() {
   const [users, setUsers] = useState<User[]>();
   const [status, setStatus] = useState<ViewStatusType>();
   const [errorMessage, setErrorMessage] = useState<string>();
   const { token, user: loggedInUser } = useContext(AuthContext);
-
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(0);
+    const handlePaginationChange = ( _event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+        console.log("page",value);
+    };
    useEffect(() => {
-      requestUsers(loggedInUser?.id,setUsers, setStatus, setErrorMessage ,token);
-  },[loggedInUser]);
+      requestUsers(page,setTotalPage,setUsers, setStatus, setErrorMessage ,token);
+  },[loggedInUser,page]);
   if (status === 'loading')  {
     return <LoadingSpinner/>
   }
@@ -31,6 +37,8 @@ function Users() {
 
               </Link>
           ))}
+            <Pagination count={totalPage} page={page} onChange={handlePaginationChange} />
+
         </div>
     )
 }
