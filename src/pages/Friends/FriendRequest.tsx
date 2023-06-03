@@ -9,7 +9,7 @@ import { formatDistanceToNow } from 'date-fns';
 import {RejectFriendRequest} from "./RejectFriendRequest";
 
 function FriendRequest(props:any) {
-    const {user,requestId,requestDate,setRequests,setRequestState,sent} = props;
+    const {user,requestId,requestDate,setRequests,setRequestState,sent, setSuccessMessage} = props;
     const { token, user: loggedInUser } = useContext(AuthContext);
 
     const [status, setStatus] = useState('normal');
@@ -17,10 +17,15 @@ function FriendRequest(props:any) {
 
 
     const handleAccept = async() => {
-        await AcceptFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
+        await AcceptFriendRequest(requestId,setRequests,setRequestState,setSuccessMessage,setErrorMessage,token);
     }
     const handleReject = async() => {
-        RejectFriendRequest(requestId,setRequests,setRequestState,setErrorMessage,token);
+
+        console.log("Reject: ",requestId)
+        RejectFriendRequest(user?.id,requestId,setRequests,setRequestState,setSuccessMessage,setErrorMessage,token);
+
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
 
     }
 

@@ -671,6 +671,12 @@ color: #989797;
     transition: scale 5s ease-in-out;
     width: 20%;
 }
+.post-btn:hover {
+    background-color: #e084da !important;
+    transform: scale(1);
+    color:white;
+
+}
 .comment-maker {
     display: flex;
     height:40px;

@@ -8,6 +8,7 @@ export const AcceptFriendRequest = async (
     requestId: string,
     setRequests: React.Dispatch<React.SetStateAction<RequestProps[]>>,
     setStatus: (status: ViewStatusType) => void,
+    setSuccessMessage: (message: string | undefined) => void,
     setErrorMessage: (message: string | undefined) => void,
     token: string,
 ) => {
@@ -31,6 +32,7 @@ export const AcceptFriendRequest = async (
         }
         setRequests((requests: RequestProps[]) => requests.filter((request) => request.requestId !== requestId));
         setStatus('success');
+        setSuccessMessage('Friend request accepted Successfully')
     } catch (e) {
         console.log(e)
     }

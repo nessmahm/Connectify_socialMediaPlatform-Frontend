@@ -41,7 +41,7 @@ function FriendRequestButton(props) {
             { setText(notConnectedState);
                 break; }
                 case "response":{
-                    window.location.href = '/sent-requests';
+                    window.location.href = '/friends';
                 }
 
     }}

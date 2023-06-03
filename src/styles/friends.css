@@ -26,6 +26,7 @@
     margin-top: 40px;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .friendCard .userName {
@@ -41,7 +42,7 @@
     margin:10px;
 }
 .friends-page .friendReq-section {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,4 +159,10 @@ margin: 30px auto;
     color: #8a8a9b;
     font-size: 17px;
     font-weight: bolder;
+}
+
+.users-page .users-section
+{
+    width: 250px !important;
+
 }

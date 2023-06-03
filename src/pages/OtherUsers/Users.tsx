@@ -31,10 +31,12 @@ function Users() {
   }
     return (
         <div className={"friends-page users-page wrapper"}>
-          {users && users.map((user) => (
+
+            {users && users.map((user) => (
                   <UserInfo user={user} key={user.id} />
 
           ))}
+
             <Pagination count={totalPage} page={page} onChange={handlePaginationChange} />
 
         </div>
