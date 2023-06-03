@@ -18,6 +18,7 @@ import '../../styles/modal.css'
 import SearchBar from "../SearchBar/SearchBar";
 import SearchModal from "../modals/SearchModal";
 import {AuthContext} from "../../context/context";
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
     const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
@@ -56,16 +57,14 @@ function Header() {
                         <Diversity3OutlinedIcon color={"secondary"} />
                     </Link>
 
-                    <Link to={"/users"} className={"icon-wrapper"}>
+                    <Link to={"/"} className={"icon-wrapper"}>
 
                         <HomeIcon className={"icon"} color={"secondary"} />
                     </Link>
 
-                    <Link to={"/messages"} className={"icon-wrapper"}>
-                        <Badge variant="dot" invisible={!messageBadge.visible} color="secondary">
+                    <Link to={"/users"} className={"icon-wrapper"}>
 
-                        <SmsOutlinedIcon  color={"secondary"} />
-                        </Badge>
+                        <GroupAddIcon  color={"secondary"} />
                     </Link>
 
             </div>
