@@ -68,7 +68,7 @@ function Friends() {
                     </Link>
                 )))
                 :
-                <span> No Friends Yet </span>
+                <p className={"noFriends-message"}> You Don't Have Friends Yet. Go Make Some :)  </p>
                 }
 
 

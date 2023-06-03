@@ -35,7 +35,7 @@ function FriendRequestElement() {
                     size="md"
                     variant="soft"
                     className={"signIn-error"}
-                >Friend Added Successfully </Alert>
+                >Friend Request Removed Successfully </Alert>
             }
 
             <div className={"friendReq-section"}>

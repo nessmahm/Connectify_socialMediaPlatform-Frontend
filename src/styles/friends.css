@@ -1,7 +1,6 @@
 .friends-page {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     background-color: transparent;
 }
@@ -133,7 +132,6 @@ width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
     flex-direction: row;
     width : 100%;
 }
@@ -148,6 +146,12 @@ width: 100%;
 }
 .friend-request-page{
     width: 70%;
-margin: 30px auto;
+    margin: 30px auto;
     padding-left: 10px;
+}
+.noFriends-message{
+    padding-top: 45px;
+    color: #8a8a9b;
+    font-size: 17;
+    font-weight: bolder;
 }
