@@ -39,7 +39,7 @@ export const App = () => (
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />
                     <Route path="/search" element = {<AuthNeeded element={<SideBar/>} />} />
                     <Route path="/sent-requests" element = {<AuthNeeded element={<FriendRequestSent/>}/>} />
-
+                    <Route path="/" element={<AuthNeeded element={<Home/>}/>} />
                 </Routes>
             </Router>
         </React.StrictMode>
