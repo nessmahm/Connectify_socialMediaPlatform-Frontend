@@ -80,5 +80,15 @@ const definitions: ServiceDefinition[] = [
       headers,
     }),
   },
+  {
+    id: 'request-home-page-posts',
+    method: 'GET',
+    endpoint: '/post/get-by-friends',
+    description: 'Get posts of friends.',
+    buildRequest: (headers) => ({
+      serviceId: 'request-home-page-posts',
+      headers,
+    }),
+  },
 ];
 export default definitions;

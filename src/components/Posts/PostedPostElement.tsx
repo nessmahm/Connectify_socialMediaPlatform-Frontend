@@ -138,10 +138,10 @@ const [disableComment,setDisableComment]=useState(true)
                   {owner && (<span>{owner.username}</span>)}
                   {createdAt && (<span className="time">{format(new Date(createdAt), "dd-MM-yyyy HH:mm")}</span>)}
                 </div>
-              <DeleteOutlined
+              {canDelete && (<DeleteOutlined
                 className="delete-button"
                 onClick={handleDeletePostClick}
-              />
+              />)}
             </div>
 
             <div className={"content"}>

@@ -56,7 +56,7 @@ function Header() {
                         <Diversity3OutlinedIcon color={"secondary"} />
                     </Link>
 
-                    <Link to={"/"} className={"icon-wrapper"}>
+                    <Link to={"/users"} className={"icon-wrapper"}>
 
                         <HomeIcon className={"icon"} color={"secondary"} />
                     </Link>
