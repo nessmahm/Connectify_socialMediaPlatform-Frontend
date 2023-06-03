@@ -26,7 +26,7 @@ export const UserInfo = (props: UserInfoProps) => {
   return (
     <div className="users-section all-users">
 
-      {user && <Link to={"profil/"+user.id}>
+      {user && <Link to={"/profil/"+user.id}>
         <FriendCard user={user} />
       </Link> }
       {/*<Button

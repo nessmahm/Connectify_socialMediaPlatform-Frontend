@@ -51,6 +51,8 @@ function Post(props: PostInputProps) {
               setErrorMessage,
               token,
             )
+            // eslint-disable-next-line no-restricted-globals
+            location.reload();
     }
 
     return (

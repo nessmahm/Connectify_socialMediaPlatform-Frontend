@@ -52,7 +52,12 @@
     justify-content: space-around;
     width: 100%;
 }
-
+.profil .partTwo{
+    flex: 2;
+}
+.profil .partOne{
+    flex: 1
+}
 .profil .profile-body {
     display: flex;
     flex-wrap: nowrap;
@@ -60,14 +65,7 @@
     justify-content: space-between;
 
 }
-.profil .profile-body .partOne {
-    width: 400px;
-}
-.profil .profile-body .partTwo {
-    width: 50%;
 
-
-}
 .friend-btn button {
     height: 30px;
     border-radius: 15px;

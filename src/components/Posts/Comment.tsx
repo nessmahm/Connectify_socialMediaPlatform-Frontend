@@ -1,12 +1,10 @@
 import { DeleteOutlined } from '@mui/icons-material';
+import { formatDistanceToNow } from 'date-fns';
 import { useContext } from 'react';
-import { useState } from 'react';
 import React from 'react'
 import { AuthContext } from '../../context/context';
-import { formatDate } from '../../Props/DateFormat';
 import UserImage from "../UserImage";
 import  '../../styles/elements.css'
-import { handleCommentDeleteClick } from './handleCommentDeleteClick';
 import { CommentType } from './PostedPostElement';
 
 function Comment(props: CommentType) {
@@ -29,7 +27,7 @@ function Comment(props: CommentType) {
             <div className={"details"}>
                 <div className={"info"}>
                   {writer && writer.username && (<span className={"postOwner"}>{writer.username}</span>)}
-                  {createdAt && <span className={"postDate"}>{formatDate(createdAt)}</span>}
+                  {createdAt && <span className={"postDate"}>{formatDistanceToNow(new Date(createdAt))}&nbsp;ago</span>}
                 </div>
                 <span className={"content"}>{content} </span>
             </div>

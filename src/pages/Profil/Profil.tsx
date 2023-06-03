@@ -77,11 +77,12 @@ function Profil() {
 
             }
             <div className={"profile-body"}>
-                <div className={"partOne"}>
+                {friends.length > 0 && (<div className={"partOne"}>
                     {
                         friends && friends.length > 0 &&  <FriendsElement friends={friends}/>
                     }
                 </div>
+                )}
 
                 <div className={"partTwo"}>
                     {loggedInUser?.id === userId && <Post setPosts={setPosts}/>}
