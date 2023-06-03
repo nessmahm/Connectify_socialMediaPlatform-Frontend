@@ -42,7 +42,7 @@ function FriendRequestElement() {
                 {friendRequests && friendRequests.length > 0 ?
                     (
                         friendRequests.map((request) => (
-                            <FriendRequest user={request.reciever} requestId={request?.requestId} setRequests={setFriendRequests}
+                            <FriendRequest user={request?.reciever} requestId={request?.requestId} setRequests={setFriendRequests}
                                            setRequestState={setRequestState} requestDate={request?.requestDate}
                                            key={request.requestId} sent={true}/>
 
@@ -53,6 +53,7 @@ function FriendRequestElement() {
                         <span> No friend requests </span>
                     )
                 }
+
             </div>
 
         </div>

@@ -78,7 +78,7 @@ function Header() {
                         token={token}
                         inputHandler={searchHandler}/>
                 </div>
-                {searchModal && <div onMouseLeave={()=>setSearchModal(false)}>  <SearchModal input={searchText} />  </div> }
+                {/*searchModal && <div onMouseLeave={()=>setSearchModal(false)}>  <SearchModal input={searchText} />  </div>*/ }
                 <span className={"separator"}></span>
                 <div className={"icon-wrapper"}  onClick={handelNotification}>
                     <Badge badgeContent={notificationBadge.number} invisible={!notificationBadge.visible} color="secondary">
