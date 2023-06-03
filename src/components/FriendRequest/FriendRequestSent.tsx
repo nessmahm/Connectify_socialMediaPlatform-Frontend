@@ -35,11 +35,11 @@ function FriendRequestElement() {
                     size="md"
                     variant="soft"
                     className={"signIn-error"}
-                >Friend Added Succefully </Alert>
+                >Friend Added Successfully </Alert>
             }
 
             <div className={"friendReq-section"}>
-                {friendRequests && friendRequests?.length > 0 ?
+                {friendRequests && friendRequests.length > 0 ?
                     (
                         friendRequests.map((request) => (
                             <FriendRequest user={request.reciever} requestId={request?.requestId} setRequests={setFriendRequests}
