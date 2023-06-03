@@ -38,6 +38,7 @@ export const App = () => (
                     <Route path="/settings" element = {<AuthNeeded element={<Settings/>}/>} />
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />
                     <Route path="/search" element = {<AuthNeeded element={<SideBar/>} />} />
+                    <Route path="/sent-requests" element = {<AuthNeeded element={<FriendRequestSent/>}/>} />
 
                 </Routes>
             </Router>
