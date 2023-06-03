@@ -16,6 +16,8 @@ export const requestUser = async (
         if (!userId) {
             return;
         }
+        console.log("profilId",profilId)
+        console.log("userId",userId)
         setStatus('loading')
         const service = getService('get-user-by-id');
         const request = service.buildRequest({

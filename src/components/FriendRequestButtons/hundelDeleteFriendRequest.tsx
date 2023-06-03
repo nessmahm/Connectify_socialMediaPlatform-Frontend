@@ -3,7 +3,6 @@ import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 
 export const requestDeleteFriendRequest = async (
-    senderId: string,
     recieverId: string,
     setText:(Text: string[]) => void,
     btnText : string[],
@@ -12,7 +11,7 @@ export const requestDeleteFriendRequest = async (
     token: string,
 ) => {
     try {
-        if (!senderId) {
+        if (!recieverId) {
             return;
         }
         setStatus('loading')
@@ -21,9 +20,10 @@ export const requestDeleteFriendRequest = async (
             setErrorMessage('Invalid service');
 
         }
+
         const bearerToken = 'Bearer ' + token;
         const request = service.buildRequest({
-            recieverId,senderId
+            recieverId,
         },{ Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');

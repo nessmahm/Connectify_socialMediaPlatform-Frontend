@@ -10,6 +10,7 @@ import { AuthContext } from '../../context/context';
 import FriendsElement from "../Friends/FriendsElement";
 import { ViewStatusType } from '../Sign/SignUp';
 import { requestUsers } from './requestUsers';
+import { Link } from 'react-router-dom';
 function Users() {
   const [users, setUsers] = useState<User[]>();
   const [status, setStatus] = useState<ViewStatusType>();
@@ -25,7 +26,10 @@ function Users() {
     return (
         <div className={"friends-page users-page wrapper"}>
           {users && users.map((user) => (
-            <UserInfo user={user} key={user.id} />
+              <Link to={"/profil/"+user.id}>
+                  <UserInfo user={user} key={user.id} />
+
+              </Link>
           ))}
         </div>
     )

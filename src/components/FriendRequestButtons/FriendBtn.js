@@ -5,7 +5,7 @@ import {hundelSendFriendRequest} from "./hundelSendFriendRequest";
 import {requestDeleteFriendRequest} from "./hundelDeleteFriendRequest";
 
 function FriendRequestButton(props) {
-    const {state,userid} = props;
+    const {state,userId } = props;
     const { token, user: loggedInUser } = useContext(AuthContext);
     const [status, setStatus] = useState('normal');
     const [isClicked, setIsClicked] = useState(true);
@@ -13,27 +13,27 @@ function FriendRequestButton(props) {
     const notConnectedState = ['connect', 'send request'];
     const connectedState = ['friend', 'unfollow'];
     const requestSentState = ['request sent', 'cancel request'];
-    const [text, setText] = useState( state =="connect" ? notConnectedState : state==="friend" ? connectedState : requestSentState);
+    const [text, setText] = useState();
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(()=> {
-        console.log("token",token)
-        },[text,token,status]
+        setText(state =="notFriend" ? notConnectedState : state==="friend" ? connectedState : requestSentState)
+        },[userId]
     )
 
     const handleClick = () => {
-
         switch (text[1]) {
             case "send request":
             {
                 setStatus('normal')
-                hundelSendFriendRequest(loggedInUser?.id, userid,setText,requestSentState,setStatus,setErrorMessage,token);
+                hundelSendFriendRequest(loggedInUser?.id, userId,setText,requestSentState,setStatus,setErrorMessage,token);
 
                 break;
             }
             case "cancel request":
             {  setStatus('normal')
-                requestDeleteFriendRequest(loggedInUser?.id, userid,setText,notConnectedState,setStatus,setErrorMessage,token);
+                console.log("userId",userId)
+                requestDeleteFriendRequest(userId,setText,notConnectedState,setStatus,setErrorMessage,token);
 
                 break; }
             case "unfollow":
@@ -46,7 +46,8 @@ function FriendRequestButton(props) {
     return (
         <div className={"friend-btn"}>
 
-        <Button
+            {text && (
+                <Button
             className= {text[0] ==="request sent" ? "btn friend-btn request-sent-btn" : "btn friend-btn" }
             variant="contained"
             color="primary"
@@ -55,7 +56,7 @@ function FriendRequestButton(props) {
             onClick={handleClick}
         >
             {isHovered? text[1] : text[0] }
-        </Button>
+        </Button>)}
         </div>
     );
 }
