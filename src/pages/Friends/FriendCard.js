@@ -5,7 +5,7 @@ function FriendCard({user}) {
 
     return (
        user &&  <div className={"friendCard"}>
-            <UserImage img={user?.image}/>
+            <UserImage img={user?.image }/>
             <span className={"userName"}>  {user?.username}</span>
             <span>{formatDate(user?.createdAt)}</span>
 

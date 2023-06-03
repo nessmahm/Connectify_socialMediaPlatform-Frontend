@@ -73,7 +73,10 @@ function Header() {
             <div className={"third"}>
 
                 <div className={"icon-wrapper search-element"} onClick={()=>setSearchModal(true) }>
-                    <SearchBar inputHandler={searchHandler}/>
+                    <SearchBar
+                        searchText={searchText}
+                        token={token}
+                        inputHandler={searchHandler}/>
                 </div>
                 {searchModal && <div onMouseLeave={()=>setSearchModal(false)}>  <SearchModal input={searchText} />  </div> }
                 <span className={"separator"}></span>

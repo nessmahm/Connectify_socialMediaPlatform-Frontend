@@ -61,5 +61,14 @@ export const definitions: ServiceDefinition[] = [
       headers
     }),
   },
+  {
+    id: 'find-user-by-name',
+    method: 'GET',
+    endpoint: '/user/findbyname/:name',
+    buildRequest: (data: any) => ({
+      serviceId: 'find-user-by-name',
+      urlParams: { ...data },
+    }),
+  },
 ];
 export default definitions;

@@ -116,3 +116,10 @@
     background-color: #8b87ad;
     color: #f2f3f5;
 }
+.user-not-found-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

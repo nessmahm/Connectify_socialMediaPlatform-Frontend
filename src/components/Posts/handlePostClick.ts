@@ -6,6 +6,7 @@ import { PostData } from './Post';
 
 export const addPost = async (
   data: PostData,
+  setPosts: React.Dispatch<React.SetStateAction<PostData[]>>,
   setStatus: (status: ViewStatusType) => void,
   setErrorMessage: (message: string | undefined) => void,
   token: string
@@ -31,6 +32,7 @@ export const addPost = async (
         setErrorMessage(response.message)
         return;
       }
+      setPosts((posts: PostData[]) => [response.data, ...posts])
       setStatus('success');
     } catch (e) {
       console.log(e)

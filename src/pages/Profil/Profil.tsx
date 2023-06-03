@@ -44,6 +44,13 @@ function Profil() {
             <LoadingSpinner/>
         )
     }
+    if (!user) {
+        return (
+          <div className="user-not-found-container">
+          <h2>User not found :(</h2>
+          </div>
+        )
+    }
     return (
         <div className={"profil"}>
 
@@ -77,7 +84,7 @@ function Profil() {
                 </div>
 
                 <div className={"partTwo"}>
-                    {loggedInUser && <Post/>}
+                    {loggedInUser?.id === userId && <Post setPosts={setPosts}/>}
                     {
                         posts && posts.length > 0 && posts.map((post: PostedPostProps) => (
                             <PostedPostElement

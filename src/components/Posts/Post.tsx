@@ -16,7 +16,11 @@ export type PostData = {
     file?: File;
     content?: string;
 }
-function Post() {
+export type PostInputProps = {
+    setPosts?: React.Dispatch<React.SetStateAction<PostData[]>>
+}
+function Post(props: PostInputProps) {
+    const { setPosts } = props;
     const [postModal, setPostModal] = useState(false);
     const [post,setPost] = useState<PostData>({});
     const [status, setStatus] = useState<ViewStatusType>();
@@ -42,6 +46,7 @@ function Post() {
         const submitPost = () => {
             addPost(
               post,
+              setPosts,
               setStatus,
               setErrorMessage,
               token,
