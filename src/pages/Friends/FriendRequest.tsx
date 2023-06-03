@@ -9,7 +9,7 @@ import { formatDistanceToNow } from 'date-fns';
 import {RejectFriendRequest} from "./RejectFriendRequest";
 
 function FriendRequest(props:any) {
-    const {user,requestId,requestDate,setRequests,setRequestState} = props;
+    const {user,requestId,requestDate,setRequests,setRequestState,sent} = props;
     const { token, user: loggedInUser } = useContext(AuthContext);
 
     const [status, setStatus] = useState('normal');
@@ -34,13 +34,16 @@ function FriendRequest(props:any) {
                     <UserImage img={user?.image} />
                     <Link  className={"notification"} to={"/profil/"+user?.id} key={user?.id}>
                         <span> <strong>{user?.username} </strong></span>
-                        <span >{ formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
+                        <span >{requestDate &&  formatDistanceToNow(new Date(requestDate), { addSuffix: true })}</span>
 
                     </Link>
 
+            {sent===true && <button  className={"btn sign-btn1"} onClick={handleReject} >Cancel</button>}
+            {sent === false && <>
+                <button  className={"btn accept-btn"} onClick={handleAccept} ><strong>Accept</strong></button>
+                <button  className={"btn reject-btn"} onClick={handleReject} >Reject</button>
+            </>}
 
-                    <button  className={"btn accept-btn"} onClick={handleAccept} ><strong>Accept</strong></button>
-                    <button  className={"btn reject-btn"} onClick={handleReject} >Reject</button>
 
         </div>
     )

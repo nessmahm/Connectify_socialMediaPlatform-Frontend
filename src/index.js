@@ -20,6 +20,7 @@ import {registerAllEndpoints} from "./services/api/endpoints/registerAllEndpoint
 import {AuthProvider} from "./context/AuthContextProvider.tsx";
 import {AuthNeeded} from "./components/Auth/AuthNeeded.tsx";
 import Home from "./pages/Home/Home";
+import FriendRequestSent, {FriendRequestElement} from "./components/FriendRequest/FriendRequestSent"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -37,7 +38,6 @@ export const App = () => (
                     <Route path="/settings" element = {<AuthNeeded element={<Settings/>}/>} />
                     <Route path="/friends" element = {<AuthNeeded element={<Friends/>} />} />
                     <Route path="/search" element = {<AuthNeeded element={<SideBar/>} />} />
-                    <Route path="/" element = {<AuthNeeded element={<Home />} />} />
 
                 </Routes>
             </Router>
