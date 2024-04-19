@@ -7,12 +7,12 @@ export const handleSignUpClick = async (
   password: string | undefined,
   phoneNumber: number| undefined,
   gender: 'MALE' | 'FEMALE',
-  setStatus: (status: ViewStatusType | undefined) => void,
-  setErrorMessage: (message: string| undefined) => void,
-  setSuccessMessage: (message: string | undefined) => void,
+  setStatus?: (status: ViewStatusType | undefined) => void,
+  setErrorMessage?: (message: string| undefined) => void,
+  setSuccessMessage?: (message: string | undefined) => void,
 ) => {
   try {
-    setStatus('loading')
+    setStatus?.('loading')
     console.log('here')
     const service = getService('create-user');
     const request = service.buildRequest({
@@ -23,19 +23,21 @@ export const handleSignUpClick = async (
       gender,
     });
     if (!request) {
-      setErrorMessage('Invalid request');
+      setErrorMessage?.('Invalid request');
       return;
     }
     const response = await submit(request)
     console.log("res",response)
     if ( !response ||response.message ||  response.data?.status === 400) {
-      setStatus("error")
-      setErrorMessage(response.message)
-      return;
+      setStatus?.("error")
+      setErrorMessage?.(response.message)
+      return false;
     }
-    setStatus('success');
-    setSuccessMessage('User created successfully!');
+    setStatus?.('success');
+    setSuccessMessage?.('User created successfully!');
+    return true
   } catch (e) {
     console.log(e)
+    return false
   }
 }

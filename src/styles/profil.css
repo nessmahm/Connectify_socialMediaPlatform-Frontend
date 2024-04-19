@@ -62,6 +62,7 @@
     display: flex;
     flex-wrap: nowrap;
     width: 70%;
+    gap: 30px;
     justify-content: space-between;
 
 }
