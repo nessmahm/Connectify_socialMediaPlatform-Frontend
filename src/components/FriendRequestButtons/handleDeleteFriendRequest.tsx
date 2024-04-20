@@ -12,12 +12,13 @@ export const requestDeleteFriendRequest = async (
 ) => {
     try {
         if (!recieverId) {
-            return;
+            return false;
         }
         setStatus('loading')
         const service = getService('delete-a-friend-request');
         if (!service) {
             setErrorMessage('Invalid service');
+            return false;
 
         }
 
@@ -27,17 +28,19 @@ export const requestDeleteFriendRequest = async (
         },{ Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');
-            return;
+            return false;
+
         }
         const response = await submit(request)
         console.log("res",response)
         if (response.message || !response || response.data?.status === 400) {
             setStatus("error")
             setErrorMessage(response.message)
-            return;
+            return false;
         }
         setStatus('success');
         setText(btnText);
+        return true;
 
     } catch (e) {
         console.log(e)

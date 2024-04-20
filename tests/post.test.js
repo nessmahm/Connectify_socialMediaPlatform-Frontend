@@ -4,6 +4,9 @@ import {getUserPosts} from "../src/services/api/getPosts";
 import {signup} from "../src/services/api/signup";
 import {signin} from "../src/services/signin";
 import { describe, it, expect } from "vitest";
+import {addPost} from "../src/components/Posts/handlePostClick";
+import {PostData} from "../src/components/Posts/Post";
+import {deletePost} from "../src/components/Posts/deletePost";
 
 describe('Posts', () => {
     const username = generateRandomString();
@@ -12,6 +15,7 @@ describe('Posts', () => {
     const email = generateRandomString() + '@gmail.com';
     let token;
     let userId;
+    let postId;
     it('should create a user', async () => {
         const user = await signup(username, email, password, phoneNumber)
         expect(user).toBeTruthy();
@@ -26,4 +30,38 @@ describe('Posts', () => {
         const posts = await getUserPosts(userId,token);
         expect(posts).toHaveLength(0);
     })
+    it('should add a post', async () => {
+        const postData:PostData={file:null,content:"Hello friends"}
+        // Mocking setPosts, setStatus, and setErrorMessage as jest functions
+        const setPosts = jest.fn();
+        const setStatus = jest.fn();
+        const setErrorMessage = jest.fn();
+
+        const post = await addPost(postData, setPosts, setStatus, setErrorMessage, token);
+
+        expect(setStatus).toHaveBeenCalledWith('success');
+        expect(setPosts).toHaveBeenCalledTimes(1);
+        expect(post).toBeTruthy();
+
+    });
+    it('posts array should have one post', async () => {
+        const posts = await getUserPosts(userId,token);
+        expect(posts).toHaveLength(1);
+    })
+    it('should delete a post', async () => {
+        const setPosts = jest.fn();
+        const setStatus = jest.fn();
+        const setErrorMessage = jest.fn();
+        const setSuccessMessage = jest.fn();
+
+        const deletePost = await deletePost(postId, setPosts, setStatus,setSuccessMessage, setErrorMessage, token);
+        expect(setStatus).toHaveBeenCalledWith('success');
+        expect(setPosts).toHaveBeenCalledTimes(1);
+        expect(deletePost).toBeTruthy();
+    });
+    it('posts array should be empty again', async () => {
+        const posts = await getUserPosts(userId,token);
+        expect(posts).toHaveLength(0);
+    })
+
 });

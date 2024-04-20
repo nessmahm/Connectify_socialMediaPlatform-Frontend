@@ -15,7 +15,7 @@ export const handleSendFriendRequest = async (
 ) => {
     try {
         if (!senderId) {
-            return;
+            return false;
         }
         setStatus('loading')
         const service = getService('send-friend-request');
@@ -25,17 +25,18 @@ export const handleSendFriendRequest = async (
         },{ Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');
-            return;
+            return false;
         }
         const response = await submit(request)
         console.log("res",response)
         if (response.message || !response || response.data?.status === 400) {
             setStatus("error")
             setErrorMessage(response.message)
-            return;
+            return false;
         }
         setStatus('success');
         setText(btnText);
+        return true
 
     } catch (e) {
         console.log(e)

@@ -30,10 +30,11 @@ export const addPost = async (
       if (response.message || ! response || response.data?.status === 400) {
         setStatus("error")
         setErrorMessage(response.message)
-        return;
+        return false ;
       }
       setPosts((posts: PostData[]) => [response.data, ...posts])
       setStatus('success');
+      return true;
     } catch (e) {
       console.log(e)
     }

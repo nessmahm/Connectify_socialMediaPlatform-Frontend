@@ -19,17 +19,18 @@ export const requestAllFriendRequests = async (
             { Authorization: bearerToken})
         if (!request) {
             setErrorMessage('Invalid request');
-            return;
+            return false;
         }
         const response = await submit(request)
         console.log("res",response)
         if (!response ||response.message ||  response.data?.status === 400 ) {
             setStatus("error")
             setErrorMessage(response.message)
-            return;
+            return false;
         }
         setFriendRequests(response.data as RequestProps[])
         setStatus('success');
+        return true;
     } catch (e) {
         console.log(e)
     }

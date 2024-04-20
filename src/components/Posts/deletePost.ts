@@ -23,18 +23,19 @@ export const deletePost = async (
     }, { Authorization: bearerToken})
     if (!request) {
       setErrorMessage('Invalid request');
-      return;
+      return false;
     }
     const response = await submit(request)
     console.log("res",response)
     if (response.message || !response || response.data?.status === 400) {
       setStatus("error")
       setErrorMessage(response?.message || response?.data.message)
-      return;
+      return false;
     }
     setPosts((posts) => posts.filter((post) => post.id !== postId));
     setSuccessMessage('Post deleted successfully!');
     setStatus('success');
+    return true
 } catch (e) {
     setErrorMessage('Unexpected error')
     setStatus('error')
