@@ -3,7 +3,7 @@ import {generateRandomPhoneNumber, generateRandomString} from "../src/utils/rand
 import {signup} from "../src/services/api/signup";
 import {signin} from "../src/services/signin";
 import { describe, it, expect, vi } from "vitest";
-import {getFriendRequests, sendFriendRequest} from "../src/services/api/friendRequests";
+import {deleteFriendRequest, getFriendRequests, sendFriendRequest} from "../src/services/api/friendRequests";
 
 describe('Friends_Request', () => {
     const username = generateRandomString();
@@ -42,9 +42,7 @@ describe('Friends_Request', () => {
         userId_2 = user.user.id;
     })
     it('user  should send a friend request to user2', async () => {
-        const setFriendRequests = vi.fn();
-        const setStatus = vi.fn();
-        const setErrorMessage = vi.fn();
+
         const friendRequest = await sendFriendRequest(userId, userId_2,token);
         expect(friendRequest).toBeTruthy();
 
@@ -53,6 +51,9 @@ describe('Friends_Request', () => {
         const friendsRequest = await getFriendRequests(token_2);
         expect(friendsRequest).toHaveLength(1);
     })
-
+    it('user 1 should delete friend request', async () => {
+        const friendRequest = await deleteFriendRequest(userId_2,token);
+        expect(friendRequest).toBeTruthy();
+    })
 });
 

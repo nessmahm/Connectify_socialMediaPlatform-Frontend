@@ -37,3 +37,21 @@ export const getFriendRequests = async (token: string) => {
     return false;
   }
 }
+export const deleteFriendRequest = async ( recieverId: string,token: string) => {
+  try {
+    const response = await fetch('http://localhost:3000/friend-request/'+recieverId, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    });
+    if (!response.ok) {
+      return false;
+    }
+    return true
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}
