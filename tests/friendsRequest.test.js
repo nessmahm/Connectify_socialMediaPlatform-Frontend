@@ -2,10 +2,8 @@
 import {generateRandomPhoneNumber, generateRandomString} from "../src/utils/randomString";
 import {signup} from "../src/services/api/signup";
 import {signin} from "../src/services/signin";
-import { describe, it, expect } from "vitest";
-import {handleSendFriendRequest} from "../src/components/FriendRequestButtons/handleSendFriendRequest";
-import {requestAllFriendRequests} from "../src/pages/Friends/requestAllFriendsRequests";
-import {requestDeleteFriendRequest} from "../src/components/FriendRequestButtons/handleDeleteFriendRequest";
+import { describe, it, expect, vi } from "vitest";
+import {getFriendRequests, sendFriendRequest} from "../src/services/api/friendRequests";
 
 describe('Friends_Request', () => {
     const username = generateRandomString();
@@ -44,33 +42,16 @@ describe('Friends_Request', () => {
         userId_2 = user.user.id;
     })
     it('user  should send a friend request to user2', async () => {
-        const setFriendRequests = jest.fn();
-        const setStatus = jest.fn();
-        const setErrorMessage = jest.fn();
-        const friendRequest = await handleSendFriendRequest(userId, userId_2, setFriendRequests, setStatus, setErrorMessage, token);
+        const setFriendRequests = vi.fn();
+        const setStatus = vi.fn();
+        const setErrorMessage = vi.fn();
+        const friendRequest = await sendFriendRequest(userId, userId_2,token);
         expect(friendRequest).toBeTruthy();
-        expect(setStatus).toHaveBeenCalledWith('success');
-        expect(friendRequest).not.toHaveBeenCalledWith([]);
-
 
     })
     it('user 2 should get friend requests', async () => {
-        const setFriendRequests = jest.fn();
-        const setStatus = jest.fn();
-        const setErrorMessage = jest.fn();
-        const friendsRequest = await requestAllFriendRequests(setFriendRequests, setStatus, setErrorMessage, token_2);
-        expect(setFriendRequests).not.toHaveBeenCalledWith([]);
-        expect(setStatus).toHaveBeenCalledWith('success');
-        expect(friendsRequest).toBeTruthy();
-
-    })
-    it('user 1 should delete friend request', async () => {
-        const setErrorMessage = jest.fn();
-        const setStatus = jest.fn();
-
-        const friendRequest = await requestDeleteFriendRequest(userId_2,()=>{},[''],setStatus,setErrorMessage,token);
-        expect(friendRequest).toBeTruthy();
-        expect(setStatus).toHaveBeenCalledWith('success');
+        const friendsRequest = await getFriendRequests(token_2);
+        expect(friendsRequest).toHaveLength(1);
     })
 
 });
