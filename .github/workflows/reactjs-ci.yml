@@ -27,9 +27,9 @@ jobs:
         run: npm run build || true
 
       #Scan the repository with Snyk
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@main
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
