@@ -12,11 +12,10 @@ export const AuthNeeded = ({ element }: AuthNeededProps) => {
   const context = useContext<AuthContextType>(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
-    console.log(context)
     if (!context.token) {
-      console.log('here')
-    navigate('/signin', { replace: true })
-  }},[context]);
+      navigate('/signin', { replace: true });
+    }
+  }, [context.token, navigate]);
 
   return element
 }

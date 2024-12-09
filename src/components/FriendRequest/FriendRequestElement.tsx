@@ -15,10 +15,11 @@ function FriendRequestElement() {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState();
     console.log("errorMessage",errorMessage)
+
     useEffect(() => {
         requestAllFriendRequests( setFriendRequests, setStatus, setErrorMessage, token);
-
     }, [loggedInUser]);
+
     if (status === 'loading') {
         return (
             <LoadingSpinner/>
