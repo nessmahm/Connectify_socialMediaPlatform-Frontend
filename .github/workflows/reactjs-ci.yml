@@ -1,0 +1,34 @@
+name: Reactjs CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "21"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test -- --watchAll=false --bail
+
+      - name: Build Docker image
+        run: |
+          docker build -t nessmahm/learn-room-front:latest .
+          docker login -u nessmahm -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push nessmahm/learn-room-front:latest
