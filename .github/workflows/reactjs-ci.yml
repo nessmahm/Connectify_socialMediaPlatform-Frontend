@@ -21,10 +21,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+
       #Exécuter le build de l'application
       - name: Build the application
         run: npm run build || true
 
+      #Scan the repository with Snyk
+      - name: Scan repository for vulnerabilities with Snyk
+        uses: snyk/actions/setup@v3
+        with:
+          args: test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Build Docker image
         run: |
