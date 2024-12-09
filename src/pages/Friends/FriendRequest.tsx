@@ -1,20 +1,17 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import UserImage from "../../components/UserImage";
-import {Button} from "@mui/joy";
 import {AcceptFriendRequest} from "./AcceptFriendRequest";
 import {AuthContext} from "../../context/context";
 import {Link} from "react-router-dom";
-import Alert from "@mui/joy/Alert";
 import { formatDistanceToNow } from 'date-fns';
 import {RejectFriendRequest} from "./RejectFriendRequest";
 
 function FriendRequest(props:any) {
     const {user,requestId,requestDate,setRequests,setRequestState,sent, setSuccessMessage} = props;
-    const { token, user: loggedInUser } = useContext(AuthContext);
+    const { token, } = useContext(AuthContext);
 
-    const [status, setStatus] = useState('normal');
     const [errorMessage, setErrorMessage] = useState('');
-
+    console.log("errorMessage",errorMessage)
 
     const handleAccept = async() => {
         await AcceptFriendRequest(requestId,setRequests,setRequestState,setSuccessMessage,setErrorMessage,token);

@@ -1,7 +1,6 @@
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { PostedPostProps } from './PostedPostElement';
-import { CommentType } from './PostedPostElement';
 
 export const deletePost = async (
   postId: string,

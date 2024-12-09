@@ -5,7 +5,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 import {AuthContext} from "../context/context";
 function UserDropDown() {
-    const { token, user: loggedInUser } = useContext(AuthContext);
+    const { user: loggedInUser } = useContext(AuthContext);
 
     return (
         <div className={"user-dropdown modaal"}>

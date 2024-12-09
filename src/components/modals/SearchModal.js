@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import UserImage from "../UserImage.js";
 import {Link} from "react-router-dom";
 
 function SearchModal({input}) {
-    const [user,setUser]= useState({"username":"userName","userImage":"","joinedDate":"May 2013","userFriends":[],"userState":true,"userPosts":[] })
     const users1 = [
         { id:1,username: 'user1' },
         { id:2,username: 'user2' },
@@ -29,7 +28,7 @@ function SearchModal({input}) {
                 <User user={user} />
             </Link>)}
         )}
-        {filteredData.length==0 && <div className={"empty-modal"}><span >no user found</span></div>
+        {filteredData.length===0 && <div className={"empty-modal"}><span >no user found</span></div>
 
         }
     </div>

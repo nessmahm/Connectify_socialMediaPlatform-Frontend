@@ -1,4 +1,3 @@
-import { User } from '../../context/context';
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../Sign/SignUp';

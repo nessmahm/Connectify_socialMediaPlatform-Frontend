@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react'
 import Alert from "@mui/joy/Alert";
 import FriendRequest from "../../pages/Friends/FriendRequest";
 import {RequestProps} from "../../Props/RequestProps";
-import {requestAllFriends} from "../../pages/Profil/requestAllFriends";
 import {requestAllFriendRequests} from "../../pages/Friends/requestAllFriendsRequests";
 import {LoadingSpinner} from "../LoadingSpinner/LoadingSpinner";
 import {AuthContext} from "../../context/context";
@@ -15,7 +14,7 @@ function FriendRequestElement() {
     const [RequestState, setRequestState] = useState<ViewStatusType>();
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState();
-
+    console.log("errorMessage",errorMessage)
     useEffect(() => {
         requestAllFriendRequests( setFriendRequests, setStatus, setErrorMessage, token);
 

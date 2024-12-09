@@ -1,32 +1,24 @@
 import React, {useContext, useEffect, useState} from 'react'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import '../../styles/header.css'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
-import user from '../../assets/images/user.png'
 import UserDropDown from "../modals/UserDropDown";
 import {Link} from "react-router-dom";
 import NotificationModal from "../modals/NotificationModal";
 import FriendRequestModal from "../modals/FriendRequestModal";
 import '../../styles/modal.css'
 import SearchBar from "../SearchBar/SearchBar";
-import SearchModal from "../modals/SearchModal";
 import {AuthContext} from "../../context/context";
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 function Header() {
     const [notificationBadge, setnotificationBadge] = useState({"visible": true,"number":2});
-    const [messageBadge, setmessageBadge] = useState({"visible": true,"number":2});
     const [friendRedBadge, setFriendReqBadge] = useState({"visible": true,"number":3});
     const [userDropdown , setUserDropdown] = useState(false)
     const [notificationDropdown , setnotificationDropdown] = useState(false)
     const [friendsReqDropdown , setfriendsReqDropdown] = useState(false)
-    const [searchModal,setSearchModal] = useState(false)
     const [searchText, setsearchText] = useState("");
     const { token, user } = useContext(AuthContext);
 
@@ -72,13 +64,12 @@ function Header() {
 
             <div className={"third"}>
 
-                <div className={"icon-wrapper search-element"} onClick={()=>setSearchModal(true) }>
+                <div className={"icon-wrapper search-element"} >
                     <SearchBar
                         searchText={searchText}
                         token={token}
                         inputHandler={searchHandler}/>
                 </div>
-                {/*searchModal && <div onMouseLeave={()=>setSearchModal(false)}>  <SearchModal input={searchText} />  </div>*/ }
                 <span className={"separator"}></span>
                 <div className={"icon-wrapper"}  onClick={handelNotification}>
                     <Badge badgeContent={notificationBadge.number} invisible={!notificationBadge.visible} color="secondary">

@@ -4,7 +4,7 @@ import '../../styles/profil.css'
 import { deletePost } from '../../components/Posts/deletePost';
 import ProfilHeader from './ProfilHeader'
 import Post from "../../components/Posts/Post";
-import FriendsElement, {FriendsElementProps} from "../Friends/FriendsElement";
+import FriendsElement from "../Friends/FriendsElement";
 import PostedPostElement from "../../components/Posts/PostedPostElement";
 import {useParams} from "react-router-dom";
 import {requestAllPosts} from "./requestAllPosts";

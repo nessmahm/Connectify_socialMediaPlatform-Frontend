@@ -2,16 +2,11 @@ import React, {useContext, useEffect, useState} from 'react'
 import FriendCard from "./FriendCard";
 import '../../styles/friends.css'
 import {Link} from "react-router-dom";
-import FriendRequest from "./FriendRequest";
 import {AuthContext, User} from "../../context/context";
 import {requestAllFriends} from "../Profil/requestAllFriends";
 import {LoadingSpinner} from "../../components/LoadingSpinner/LoadingSpinner";
-import {requestAllFriendRequests} from "./requestAllFriendsRequests";
 import Alert from "@mui/joy/Alert";
-import {RequestProps} from "../../Props/RequestProps";
-import {ViewStatusType} from "../Sign/SignUp";
 import FriendRequestElement from "../../components/FriendRequest/FriendRequestElement";
-import Pagination from '@mui/material/Pagination';
 
 //return the friends of a givin user "logged "
 //return the friends requests of a givin user "logged
@@ -21,7 +16,7 @@ function Friends() {
     const [status, setStatus] = useState('normal');
     const [errorMessage, setErrorMessage] = useState('');
     const [page, setPage] = useState(1);
-
+    console.log("setPage",setPage)
 
     useEffect(() => {
         requestAllFriends(loggedInUser?.id, setFriends, setStatus, setErrorMessage, token);
@@ -32,10 +27,6 @@ function Friends() {
             <LoadingSpinner/>
         )
     }
-    const handlePaginationChange = ( _event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
-        console.log("page",value);
-    };
     return (
         <div className={"friends-page wrapper"}>
             {status === 'error' && errorMessage ?

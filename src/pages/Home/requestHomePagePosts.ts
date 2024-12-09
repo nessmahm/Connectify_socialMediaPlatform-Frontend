@@ -1,4 +1,3 @@
-import { CommentType } from '../../components/Posts/PostedPostElement';
 import { PostedPostProps } from '../../components/Posts/PostedPostElement';
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';

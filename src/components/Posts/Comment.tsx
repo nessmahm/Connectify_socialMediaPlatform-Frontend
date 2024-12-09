@@ -9,7 +9,6 @@ import { CommentType } from './PostedPostElement';
 
 function Comment(props: CommentType) {
   const {
-    id,
     content,
     writer,
     createdAt,
@@ -17,7 +16,6 @@ function Comment(props: CommentType) {
     commentStatus,
     onDeleteCLick,
   } = props;
-  const {token} = useContext(AuthContext);
   if (commentStatus === 'deleted') {
     return null;
   }

@@ -1,5 +1,4 @@
 import { CommentType } from './PostedPostElement';
-import { PostedPostProps } from './PostedPostElement';
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { ViewStatusType } from '../../pages/Sign/SignUp';

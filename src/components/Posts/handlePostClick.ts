@@ -1,6 +1,5 @@
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 import { IoOutput } from '../../services/api/io';
-import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
 import { PostData } from './Post';
 
@@ -13,7 +12,6 @@ export const addPost = async (
 ) => {
     try {
       setStatus('loading')
-      const service = getService('add-post');
       const formData = new FormData();
       if (data?.file)
         {formData.append('file', data.file[0])}

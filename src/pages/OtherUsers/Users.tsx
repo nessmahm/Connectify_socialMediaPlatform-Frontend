@@ -7,10 +7,8 @@ import '../../styles/home.css'
 import { UserInfo } from '../../components/UserInfo/UserInfo';
 import { User } from '../../context/context';
 import { AuthContext } from '../../context/context';
-import FriendsElement from "../Friends/FriendsElement";
 import { ViewStatusType } from '../Sign/SignUp';
 import { requestUsers } from './requestUsers';
-import { Link } from 'react-router-dom';
 import Pagination from "@mui/material/Pagination";
 function Users() {
   const [users, setUsers] = useState<User[]>();
@@ -21,7 +19,7 @@ function Users() {
     const [totalPage, setTotalPage] = useState(0);
     const handlePaginationChange = ( _event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
-        console.log("page",value);
+        console.log("page",value,errorMessage);
     };
    useEffect(() => {
       requestUsers(page,setTotalPage,setUsers, setStatus, setErrorMessage ,token);

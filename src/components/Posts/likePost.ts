@@ -1,7 +1,5 @@
-import { PostedPostProps } from './PostedPostElement';
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
-import { ViewStatusType } from '../../pages/Sign/SignUp';
 
 export const likePost = async (
   postId: string | undefined,

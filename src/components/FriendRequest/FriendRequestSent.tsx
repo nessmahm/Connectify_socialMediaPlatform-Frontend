@@ -15,6 +15,7 @@ function FriendRequestElement() {
     const [status, setStatus] = useState('normal');
     const [RequestState, setRequestState] = useState<ViewStatusType>();
     const [errorMessage, setErrorMessage] = useState('');
+    console.log("errorMessage",errorMessage)
 
     useEffect(() => {
         requestSentRequest( setFriendRequests, setStatus, setErrorMessage, token);

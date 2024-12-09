@@ -1,6 +1,5 @@
 import { submit } from '../../services/api/requests';
 import { getService } from '../../services/api/requests';
-import { CommentType } from '../Posts/PostedPostElement';
 
 export const handleSendFriendRequestClick = async (
   friendId: string,

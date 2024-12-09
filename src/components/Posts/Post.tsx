@@ -26,7 +26,7 @@ function Post(props: PostInputProps) {
     const [status, setStatus] = useState<ViewStatusType>();
     const [errorMessage, setErrorMessage] = useState<string>();
     const { token } = useContext<AuthContextType>(AuthContext);
-    console.log("postdata",post)
+    console.log("postdata",errorMessage,status,setPostModal)
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;

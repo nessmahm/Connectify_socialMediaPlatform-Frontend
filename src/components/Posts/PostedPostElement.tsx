@@ -2,13 +2,11 @@ import { DeleteOutlined } from '@mui/icons-material';
 import { Modal } from '@mui/joy';
 import Alert from '@mui/joy/Alert';
 import { format } from 'date-fns';
-import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import React from 'react'
 import { User } from '../../context/context';
 import { AuthContext } from '../../context/context';
-import { formatDate } from '../../Props/DateFormat';
 import { addComment } from './addComment';
 import { ViewStatusType } from '../../pages/Sign/SignUp';
 import UserImage from "../UserImage";
@@ -16,7 +14,6 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import Comment from "./Comment";
 import '../../styles/elements.css'
-import { deletePost } from './deletePost';
 import { dislikePost } from './dislikePost';
 import { handleCommentDeleteClick } from './handleCommentDeleteClick';
 import { likePost } from './likePost';
@@ -56,7 +53,6 @@ function PostedPostElement(props: PostedPostProps) {
     imageUrl,
     comments,
     owner,
-    likes,
     numberOfLikes: numberOfLikesProp,
     numberOfComments: numberOfCommentsProp,
     isLiked: isLikedProp,
@@ -82,8 +78,7 @@ function PostedPostElement(props: PostedPostProps) {
   const handleCloseModal = () => {
     setShowModal(false);
   }
-const [disableComment,setDisableComment]=useState(true)
-    const handleAddCommentClick = async () => {
+  const handleAddCommentClick = async () => {
       await addComment(
         comment,
         id,

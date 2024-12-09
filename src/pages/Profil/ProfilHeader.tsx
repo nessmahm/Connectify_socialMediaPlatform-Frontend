@@ -1,5 +1,5 @@
 import React from 'react'
-import {Badge, Button} from "@mui/joy";
+import {Badge} from "@mui/joy";
 import UserImage from "../../components/UserImage";
 import FriendRequestButton from "../../components/FriendRequestButtons/FriendBtn";
 

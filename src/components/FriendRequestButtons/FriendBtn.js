@@ -8,7 +8,6 @@ function FriendRequestButton(props) {
     const {state,userId } = props;
     const { token, user: loggedInUser } = useContext(AuthContext);
     const [status, setStatus] = useState('normal');
-    const [isClicked, setIsClicked] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
     const notConnectedState = ['connect', 'send request'];
     const connectedState = ['friend', 'unfollow'];
@@ -16,6 +15,7 @@ function FriendRequestButton(props) {
     const requestrecievedState = ['request recieved', 'response'];
     const [text, setText] = useState();
     const [errorMessage, setErrorMessage] = useState('');
+    console.log("errorMessage",errorMessage,status,errorMessage)
 
     useEffect(()=> {
         setText(state =="notFriend" ? notConnectedState : state==="friend" ? connectedState : state==="recievedRequest" ? requestrecievedState : requestSentState)

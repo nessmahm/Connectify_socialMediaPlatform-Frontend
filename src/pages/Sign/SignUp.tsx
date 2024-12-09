@@ -1,9 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {BiRightArrowAlt} from  "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
-import { AuthContextType } from '../../context/context';
-import {AuthContext} from "../../context/context";
 import {handleSignUpClick} from "./handleSignUpClick";
 import {Alert} from "@mui/material";
 
@@ -14,9 +12,6 @@ function SignUp() {
     const [repeatedPassword, setRepeatedPassword] = useState<string>('');
     const [email, setEmail] = useState<string>();
     const [phoneNumber, setPhoneNumber] = useState<number>();
-    const context = useContext<AuthContextType>(AuthContext);
-    const { token, login, logout } = context
-    const [loading, setLoading] = useState<boolean>(false)
     const [errorMessage, setErrorMessage] = useState<string>()
     const [successMessage, setSuccessMessage] = useState<string>();
     const shouldDisableSubmit = !userName || !email || !password || !phoneNumber || !repeatedPassword || password !== repeatedPassword

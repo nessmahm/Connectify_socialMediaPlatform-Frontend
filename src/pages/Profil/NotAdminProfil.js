@@ -7,6 +7,7 @@ import PostedPostElement from "../../components/Posts/PostedPostElement";
 function NotAdminProfil() {
     const [user,setUser]= useState({"userName":"userName","userImage":"","joinedDate":"May 2013","userFriends":[],"userState":false,"userPosts":[] })
 //if the user is connected then the userState will be true !! else userState false
+    console.log("setUser",setUser)
     return (
         user &&(
         <div className={"profil"}>

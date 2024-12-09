@@ -13,7 +13,7 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState<string>();
     const context = useContext<AuthContextType>(AuthContext);
-    const { token, login:contextLogin, logout, user } = context;
+    const { login:contextLogin, user } = context;
     console.log('user', user);
     const [status,setStatus] = useState('normal');
     const navigate = useNavigate();

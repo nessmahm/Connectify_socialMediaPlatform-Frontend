@@ -1,5 +1,3 @@
-import { PostData } from '../../components/Posts/Post';
-    import { PostedPostProps } from '../../components/Posts/PostedPostElement';
     import { User } from '../../context/context';
     import { submit } from '../../services/api/requests';
     import { getService } from '../../services/api/requests';

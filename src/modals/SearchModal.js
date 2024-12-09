@@ -3,7 +3,6 @@ import UserImage from "../components/UserImage";
 import {Link} from "react-router-dom";
 
 function SearchModal({input}) {
-    const [user,setUser]= useState({"username":"userName","userImage":"","joinedDate":"May 2013","userFriends":[],"userState":true,"userPosts":[] })
     const users1 = [
         { id:1,username: 'user1' },
         { id:2,username: 'user2' },

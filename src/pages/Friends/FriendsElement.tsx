@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../styles/elements.css'
 import UserImage from "../../components/UserImage";
-import FriendRequest from "./FriendRequest";
 import {Link} from "react-router-dom";
 import {User} from "../../context/context";
 //extract the friends from a given user

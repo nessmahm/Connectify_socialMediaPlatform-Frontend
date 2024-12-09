@@ -1,4 +1,3 @@
-import { Button } from '@mui/joy';
 import { useState } from 'react';
 import { useContext } from 'react';
 import React from 'react';
@@ -15,14 +14,6 @@ export type UserInfoProps = {
 }
 export const UserInfo = (props: UserInfoProps) => {
   const { user } = props
-  const { token } = useContext(AuthContext);
-  const [disableSendRequest, setDisableSendRequest] = useState(false);
-  const [sendRequestLabel, setSendRequestLabel] = useState("Send Friend Request");
-  const onSendRequestCLick = async() => {
-    await handleSendFriendRequestClick(user.id, token)
-    setDisableSendRequest(true)
-    setSendRequestLabel('Sent')
-  }
   return (
     <div className="users-section all-users">
 

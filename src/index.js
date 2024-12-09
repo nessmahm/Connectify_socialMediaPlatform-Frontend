@@ -20,7 +20,7 @@ import {registerAllEndpoints} from "./services/api/endpoints/registerAllEndpoint
 import {AuthProvider} from "./context/AuthContextProvider.tsx";
 import {AuthNeeded} from "./components/Auth/AuthNeeded.tsx";
 import Home from "./pages/Home/Home";
-import FriendRequestSent, {FriendRequestElement} from "./components/FriendRequest/FriendRequestSent"
+import FriendRequestSent from "./components/FriendRequest/FriendRequestSent"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
