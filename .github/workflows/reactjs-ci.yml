@@ -38,7 +38,7 @@ jobs:
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
         with:
-          projectKey: 'Connectify_socialMediaPlatform-Frontend'
+          projectKey: 'nessmahm_Connectify_socialMediaPlatform-Frontend'
           organization: 'nessmahm'
           token: ${{ secrets.SONARQUBE_TOKEN }}
         env:
