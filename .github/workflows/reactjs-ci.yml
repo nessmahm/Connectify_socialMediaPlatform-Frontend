@@ -37,8 +37,12 @@ jobs:
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
+        with:
+          projectKey: 'Connectify_socialMediaPlatform-Frontend' # La clé de votre projet
+          organization: 'nessmahm' # ID de l'organisation SonarCloud/SonarQube
+          token: ${{ secrets.SONARQUBE_TOKEN }} # Ajout du token directement dans le champ `with`
         env:
-          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # URL pour le serveur SonarQube/SonarCloud
 
       - name: Build Docker image
         run: |
