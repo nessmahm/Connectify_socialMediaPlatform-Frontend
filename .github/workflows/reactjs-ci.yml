@@ -26,26 +26,11 @@ jobs:
       - name: Build the application
         run: npm run build || true
 
-      #Scan the repository with Snyk
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
-
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}} # URL pour le serveur SonarQube/SonarCloud
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-
-      - name: Build Docker image
-        run: |
-          docker build -t nessmahm/learn-room-front:latest .
-          docker login -u nessmahm -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push nessmahm/learn-room-front:latest
 
       #Afficher un message de confirmation
       - name: Confirm Build Success
