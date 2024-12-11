@@ -25,7 +25,8 @@ jobs:
         run: yarn
 
       - name: Test and coverage
-        run: yarn jest --coverage
+        run: yarn vitest --coverage
+
       #Exécuter le build de l'application
       - name: Build the application
         run: npm run build || true
